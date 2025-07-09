@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minh Triet Pham - Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --text-color: #333;
+            --text-light: #666;
+            --bg-color: #ffffff;
+            --bg-light: #f8f9fa;
+            --border-color: #e9ecef;
+            --shadow: 0 2px 10px rgba(0,0,0,0.1);
+            --shadow-hover: 0 4px 20px rgba(0,0,0,0.15);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+        }
+
+        /* Header & Navigation */
+        header {
+            background: white;
+            box-shadow: var(--shadow);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--secondary-color);
+        }
+
+        .mobile-menu {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Main Content */
+        main {
+            margin-top: 80px;
+            min-height: calc(100vh - 80px);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Page Sections */
+        .page-section {
+            display: none;
+            padding: 3rem 0;
+        }
+
+        .page-section.active {
+            display: block;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 4rem 0;
+            background: linear-gradient(135deg, var(--bg-light) 0%, white 100%);
+        }
+
+        .hero-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: var(--secondary-color);
+            margin: 0 auto 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+            box-shadow: var(--shadow);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .social-links {
+            margin-top: 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: var(--secondary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--primary-color);
+        }
+
+        /* About Section */
+        .about-section {
+            margin-bottom: 3rem;
+        }
+
+        .about-section h2 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            border-bottom: 3px solid var(--secondary-color);
+            padding-bottom: 0.5rem;
+        }
+
+        .education-item,
+        .experience-item,
+        .award-item {
+            background: var(--bg-light);
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .education-item:hover,
+        .experience-item:hover,
+        .award-item:hover {
+            transform: translateY(-2px);
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .item-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .item-date {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .item-subtitle {
+            color: var(--secondary-color);
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .item-description {
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        .item-description ul {
+            margin-left: 1.5rem;
+            margin-top: 0.5rem;
+        }
+
+        /* Projects Section */
+        .projects-category {
+            margin-bottom: 3rem;
+        }
+
+        .projects-category h3 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--secondary-color);
+            padding-left: 1rem;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .project-image {
+            height: 200px;
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .project-description {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .tag {
+            background: var(--bg-light);
+            color: var(--text-color);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .project-link {
+            display: inline-block;
+            background: var(--secondary-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+
+        .project-link:hover {
+            background: var(--primary-color);
+        }
+
+        /* Resume Section */
+        .resume-download {
+            text-align: center;
+            padding: 3rem 0;
+            background: var(--bg-light);
+            border-radius: 8px;
+        }
+
+        .resume-download h2 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .download-btn {
+            display: inline-block;
+            background: var(--secondary-color);
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            transition: background 0.3s ease;
+        }
+
+        .download-btn:hover {
+            background: var(--primary-color);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: var(--shadow);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .item-header {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 2rem 0;
+            }
+
+            .hero-image {
+                width: 150px;
+                height: 150px;
+                font-size: 3rem;
+            }
+
+            .social-links {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Minh Triet Pham</div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About Me</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#resume" class="nav-link">Resume</a></li>
+            </ul>
+            <button class="mobile-menu" id="mobile-menu">☰</button>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Home Section -->
+        <section id="home" class="page-section active">
+            <div class="hero">
+                <div class="container">
+                    <div class="hero-image">MT</div>
+                    <h1>Minh Triet Pham</h1>
+                    <p>Data Science Student at The University of Melbourne with experience in AI, machine learning, and computer vision. Passionate about leveraging data to solve real-world problems.</p>
+                    <div class="social-links">
+                        <a href="https://github.com/minhtrietcancode" target="_blank">GitHub</a>
+                        <a href="https://www.linkedin.com/in/minhtrietp/" target="_blank">LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="page-section">
+            <div class="container">
+                <div class="about-section">
+                    <h2>Education</h2>
+                    <div class="education-item">
+                        <div class="item-header">
+                            <div>
+                                <div class="item-title">Bachelor of Science in Data Science</div>
+                                <div class="item-subtitle">The University of Melbourne</div>
+                            </div>
+                            <div class="item-date">2024 - Expected 2026</div>
+                        </div>
+                        <div class="item-description">
+                            <strong>First Class Honours (Top 5%)</strong>
+                            <br>Coursework: Databases, Data Structure & Algorithms, Element of Data Processing, Object-Oriented Programming, Linear Algebra, Probability, Statistics
+                        </div>
+                    </div>
+                    <div class="education-item">
+                        <div class="item-header">
+                            <div>
+                                <div class="item-title">Hanoi - Amsterdam High School for the Gifted</div>
+                                <div class="item-subtitle">Class Mathematics 1</div>
+                            </div>
+                            <div class="item-date">2020 - 2023</div>
+                        </div>
+                        <div class="item-description">
+                            <strong>GPA: 9.7/10</strong>
+                            <br>Member of Hanoi Amsterdam Basketball Team and Football Team
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-section">
+                    <h2>Experience</h2>
+                    <div class="experience-item">
+                        <div class="item-header">
+                            <div>
+                                <div class="item-title">AI Engineer Intern (Computer Vision)</div>
+                                <div class="item-subtitle">Elcom</div>
+                            </div>
+                            <div class="item-date">May 2025 - Jul. 2025</div>
+                        </div>
+                        <div class="item-description">
+                            <ul>
+                                <li>Processed 1,000,000+ images for training computer vision models achieving high-performance detection accuracy</li>
+                                <li>Developed automated license plate recognition system detecting car numbers and attributes for 100,000+ vehicle images in high-speed road systems using YOLO and TensorFlow</li>
+                                <li>Implemented face recognition model for automated attendance checking system using OpenCV</li>
+                                <li>Crawled and curated 1,000,000+ images from diverse sources to build comprehensive training datasets for CV models</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="experience-item">
+                        <div class="item-header">
+                            <div>
+                                <div class="item-title">Data Analyst & Front-End Developer</div>
+                                <div class="item-subtitle">FutureTrack</div>
+                            </div>
+                            <div class="item-date">Jan. 2025 – Apr. 2025</div>
+                        </div>
+                        <div class="item-description">
+                            <ul>
+                                <li>Predicted market size trends with 90% accuracy by implementing machine learning models using Scikit-learn</li>
+                                <li>Scraped 150+ websites for information on 40+ academic majors by utilizing BeautifulSoup</li>
+                                <li>Built responsive career guidance website serving 200+ students by developing with HTML/CSS/JavaScript</li>
+                                <li>Created comprehensive visualizations for 40+ majors by designing data-driven graphics with Matplotlib</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="experience-item">
+                        <div class="item-header">
+                            <div>
+                                <div class="item-title">Private Mathematics Tutor</div>
+                                <div class="item-subtitle">Freelance</div>
+                            </div>
+                            <div class="item-date">Mar. 2022 – Nov. 2024</div>
+                        </div>
+                        <div class="item-description">
+                            <ul>
+                                <li>Provided personalized mathematics instruction to students across multiple academic levels for 2 years</li>
+                                <li>Developed customized lesson plans and problem-solving strategies to address individual student learning needs</li>
+                                <li>Improved student academic performance by 50% through clear explanations of complex mathematical concepts</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-section">
+                    <h2>Honors & Awards</h2>
+                    <div class="award-item">
+                        <div class="item-title">Melbourne International Undergraduate Scholarship</div>
+                        <div class="item-subtitle">The University of Melbourne</div>
+                    </div>
+                    <div class="award-item">
+                        <div class="item-title">Meritorious Prize (Top 8 Overall - Best Vietnamese Performance Ever)</div>
+                        <div class="item-subtitle">The International Mathematical Modelling Challenge (IMMC 2022)</div>
+                    </div>
+                    <div class="award-item">
+                        <div class="item-title">High Distinction Prize</div>
+                        <div class="item-subtitle">Australian Intermediate Mathematical Olympiad (AIMO 2021)</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="page-section">
+            <div class="container">
+                <div class="projects-category">
+                    <h3>AI-Related Projects</h3>
+                    <div class="projects-grid">
+                        <div class="project-card">
+                            <div class="project-image">🐕</div>
+                            <div class="project-content">
+                                <div class="project-title">Dog-Cat Classification</div>
+                                <div class="project-description">
+                                    This project implements a Convolutional Neural Network (CNN) to accurately classify images as either a dog or a cat. It demonstrates fundamental deep learning concepts for image recognition.
+                                </div>
+                                <div class="project-tags">
+                                    <span class="tag">Deep Learning</span>
+                                    <span class="tag">CNN</span>
+                                    <span class="tag">Python</span>
+                                    <span class="tag">TensorFlow</span>
+                                    <span class="tag">Keras</span>
+                                </div>
+                                <a href="https://github.com/minhtrietcancode/dog-cat-classification" class="project-link" target="_blank">View Project</a>
+                            </div>
+                        </div>
+                        <div class="project-card">
+                            <div class="project-image">🔍</div>
+                            <div class="project-content">
+                                <div class="project-title">LinkedIn Talent Search Agent</div>
+                                <div class="project-description">
+                                    An AI assistant designed to help recruiters find relevant candidates on LinkedIn based on job descriptions. Streamlines the recruitment process through intelligent candidate matching.
+                                </div>
+                                <div class="project-tags">
+                                    <span class="tag">AI Assistant</span>
+                                    <span class="tag">NLP</span>
+                                    <span class="tag">Python</span>
+                                    <span class="tag">Streamlit</span>
+                                    <span class="tag">LLMs</span>
+                                </div>
+                                <a href="https://github.com/minhtrietcancode/linkedin-talent-search-agent" class="project-link" target="_blank">View Project</a>
+                            </div>
+                        </div>
+                        <div class="project-card">
+                            <div class="project-image">📄</div>
+                            <div class="project-content">
+                                <div class="project-title">RAG-Based Resume Insights</div>
+                                <div class="project-description">
+                                    Leverages Retrieval-Augmented Generation (RAG) to provide intelligent insights and answer questions based on resume content. Interactive chatbot for resume analysis.
+                                </div>
+                                <div class="project-tags">
+                                    <span class="tag">RAG</span>
+                                    <span class="tag">LLMs</span>
+                                    <span class="tag">NLP</span>
+                                    <span class="tag">FAISS</span>
+                                    <span class="tag">Streamlit</span>
+                                </div>
+                                <a href="https://github.com/minhtrietcancode/rag-based-resume-insights" class="project-link" target="_blank">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="projects-category">
+                    <h3>Machine Learning & Model Building</h3>
+                    <div class="projects-grid">
+                        <div class="project-card">
+                            <div class="project-image">🚗</div>
+                            <div class="project-content">
+                                <div class="project-title">Australian Accident Research</div>
+                                <div class="project-description">
+                                    Investigates the influence of external factors like light conditions, road geometry, and road surface on accident severity in Victoria, Australia using various ML techniques.
+                                </div>
+                                <div class="project-tags">
+                                    <span class="tag">Data Analysis</span>
+                                    <span class="tag">Machine Learning</span>
+                                    <span class="tag">k-NN</span>
+                                    <span class="tag">Decision Trees</span>
+                                    <span class="tag">Python</span>
+                                </div>
+                                <a href="https://github.com/minhtrietcancode/australian-accident-research" class="project-link" target="_blank">View Project</a>
+                            </div>
+                        </div>
+                        <div class="project-card">
+                            <div class="project-image">✈️</div>
+                            <div class="project-content">
+                                <div class="project-title">Optimizing Airplane Boarding and Disembarking</div>
+                                <div class="project-description">
+                                    Develops efficient models for airplane boarding and disembarking processes through simulations and mathematical optimization, including pandemic-aware solutions.
+                                </div>
+                                <div class="project-tags">
+                                    <span class="tag">Optimization</span>
+                                    <span class="tag">Simulation</span>
+                                    <span class="tag">Mathematical Modeling</span>
+                                    <span class="tag">Python</span>
+                                    <span class="tag">NumPy</span>
+                                </div>
+                                <a href="https://github.com/minhtrietcancode/Optimizing-Airplane-Boarding-and-Disembarking" class="project-link" target="_blank">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="projects-category">
+                    <h3>Database Projects</h3>
+                    <div class="projects-grid">
+                        <div class="project-card">
+                            <div class="project-image">🗄️</div>
+                            <div class="project-content">
+                                <div class="project-title">OGRE Database Design</div>
+                                <div class="project-description">
+                                    Design and implementation of a MySQL relational database for OGRE platform, enabling ethical and cost-effective access to generative AI technologies.
+                                </div>
+                                <div class="project-tags">
+                                    <span class="tag">Database Design</span>
+                                    <span class="tag">MySQL</span>
+                                    <span class="tag">ER Modeling</span>
+                                    <span class="tag">Generative AI</span>
+                                </div>
+                                <a href="https://github.com/minhtrietcancode/OGRE-Database-Design" class="project-link" target="_blank">View Project</a>
+                            </div>
+                        </div>
+                        <div class="project-card">
+                            <div class="project-image">💬</div>
+                            <div class="project-content">
+                                <div class="project-title">SLARC Query Collection</div>
+                                <div class="project-description">
+                                    Demonstrates advanced SQL querying skills for a communication platform database, providing insights into user behavior and content moderation.
+                                </div>
+                                <div class="project-tags">
+                                    <span class="tag">SQL</span>
+                                    <span class="tag">Database Querying</span>
+                                    <span class="tag">Data Analysis</span>
+                                    <span class="tag">MySQL</span>
+                                </div>
+                                <a href="https://github.com/minhtrietcancode/SLARC-Query-Collection" class="project-link" target="_blank">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="projects-category">
+                    <h3>Early Learning Projects</h3>
+                    <div class="projects-grid">
+                        <div class="project-card">
+                            <div class="project-image">🤖</div>
+                            <div class="project-content">
+                                <div class="project-title">The Optimal Cleaner Robot</div>
+                                <div class="project-description">
+                                    A C program that calculates the shortest path for a robot to clean all dirt on a 2D grid map using the Breadth-First Search (BFS) algorithm.
+                                </div>
+                                <div class="project-tags">
+                                    <span class="tag">Robotics</span>
+                                    <span class="tag">BFS</span>
+                                    <span class="tag">C Programming</span>
+                                    <span class="tag">Pathfinding</span>
+                                </div>
+                                <a href="https://github.com/minhtrietcancode/The-Optimal-Cleaner-Robot" class="project-link" target="_blank">View Project</a>
+                            </div>
+                        </div>
+                        <div class="project-card">
+                            <div class="project-image">📊</div>
+                            <div class="project-content">
+                                <div class="project-title">Data Parsing and Reporting Toolkit</div>
+                                <div class="project-description">
+                                    A C-based application for efficiently processing, sorting, and summarizing structured data from Tab-Separated Values (TSV) files.
+                                </div>
+                                <div class="project-tags">
+                                    <span class="tag">Data Parsing</span>
+                                    <span class="tag">C Programming</span>
+                                    <span class="tag">Algorithms</span>
+                                    <span class="tag">TSV</span>
+                                </div>
+                                <a href="https://github.com/minhtrietcancode/Data-Parsing-and-Reporting-Toolkit" class="project-link" target="_blank">View Project</a>
+                            </div>
+                        </div>
+                        <div class="project-card">
+                            <div class="project-image">🔬</div>
+                            <div class="project-content">
+                                <div class="project-title">Elementary Cellular Automata Simulator</div>
+                                <div class="project-description">
+                                    A C-implemented tool for simulating and analyzing elementary cellular automata, solving the density classification problem through algorithmic analysis.
+                                </div>
+                                <div class="project-tags">
+                                    <span class="tag">Cellular Automata</span>
+                                    <span class="tag">Simulation</span>
+                                    <span class="tag">C Programming</span>
+                                    <span class="tag">Algorithms</span>
+                                </div>
+                                <a href="https://github.com/minhtrietcancode/Elementary-Cellular-Automata-Simulator" class="project-link" target="_blank">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resume Section -->
+        <section id="resume" class="page-section">
+            <div class="container">
+                <div class="resume-download">
+                    <h2>Download My Resume</h2>
+                    <p>Get a comprehensive overview of my skills, experience, and achievements.</p>
+                    <br>
+                    <a href="Personal Information for applying.pdf" class="download-btn" download>Download Resume (PDF)</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Minh Triet Pham. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation functionality
+        const navLinks = document.querySelectorAll('.nav-link');
+        const sections = document.querySelectorAll('.page-section');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinksContainer = document.getElementById('nav-links');
+
+        // Handle navigation clicks
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href').substring(1);
+                
+                // Remove active class from all links and sections
+                navLinks.forEach(l => l.classList.remove('active'));
+                sections.forEach(s => s.classList.remove('active'));
+                
+                // Add active class to clicked link and target section
+                link.classList.add('active');
+                document.getElementById(targetId).classList.add('active');
+                
+                // Close mobile menu if open
+                navLinksContainer.classList.remove('active');
+            });
+        });
+
+        // Mobile menu toggle
+        mobileMenu.addEventListener('click', () => {
+            navLinksContainer.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('nav')) {
+                navLinksContainer.classList.remove('active');
+            }
+        });
+
+        // Smooth scrolling for better UX
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll-to-top functionality
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            if (scrollTop > 100) {
+                document.body.classList.add('scrolled');
+            } else {
+                document.body.classList.remove('scrolled');
+            }
+        });
+
+        // Add animation on scroll for project cards
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all project cards
+        document.querySelectorAll('.project-card, .education-item, .experience-item, .award-item').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+
+        // Add typing effect to hero text
+        function typeWriter(element, text, speed = 50) {
+            let i = 0;
+            element.innerHTML = '';
+            function type() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+            type();
+        }
+
+        // Initialize typing effect on page load
+        window.addEventListener('load', () => {
+            const heroTitle = document.querySelector('.hero h1');
+            const heroDescription = document.querySelector('.hero p');
+            
+            if (heroTitle && heroDescription) {
+                const originalTitle = heroTitle.textContent;
+                const originalDescription = heroDescription.textContent;
+                
+                setTimeout(() => {
+                    typeWriter(heroTitle, originalTitle, 100);
+                    setTimeout(() => {
+                        typeWriter(heroDescription, originalDescription, 30);
+                    }, originalTitle.length * 100 + 500);
+                }, 500);
+            }
+        });
+
+        // Add dynamic background to hero section
+        function createFloatingElements() {
+            const hero = document.querySelector('.hero');
+            if (!hero) return;
+
+            for (let i = 0; i < 5; i++) {
+                const element = document.createElement('div');
+                element.className = 'floating-element';
+                element.style.cssText = `
+                    position: absolute;
+                    width: ${Math.random() * 20 + 10}px;
+                    height: ${Math.random() * 20 + 10}px;
+                    background: rgba(52, 152, 219, 0.1);
+                    border-radius: 50%;
+                    left: ${Math.random() * 100}%;
+                    top: ${Math.random() * 100}%;
+                    animation: float ${Math.random() * 10 + 5}s ease-in-out infinite;
+                    pointer-events: none;
+                `;
+                hero.appendChild(element);
+            }
+        }
+
+        // Add CSS animation for floating elements
+        const floatingAnimation = document.createElement('style');
+        floatingAnimation.textContent = `
+            @keyframes float {
+                0%, 100% { transform: translateY(0px) rotate(0deg); }
+                50% { transform: translateY(-20px) rotate(180deg); }
+            }
+            
+            .hero {
+                position: relative;
+                overflow: hidden;
+            }
+            
+            .floating-element {
+                z-index: 1;
+            }
+            
+            .hero-image, .hero h1, .hero p, .social-links {
+                position: relative;
+                z-index: 2;
+            }
+        `;
+        document.head.appendChild(floatingAnimation);
+
+        // Initialize floating elements
+        createFloatingElements();
+
+        // Add search functionality for projects
+        function addProjectSearch() {
+            const projectsSection = document.getElementById('projects');
+            const searchContainer = document.createElement('div');
+            searchContainer.className = 'search-container';
+            searchContainer.innerHTML = `
+                <input type="text" id="project-search" placeholder="Search projects..." 
+                       style="width: 100%; max-width: 400px; padding: 12px 20px; border: 2px solid var(--border-color); 
+                              border-radius: 25px; margin-bottom: 2rem; font-size: 16px; outline: none;
+                              transition: border-color 0.3s ease;">
+            `;
+            
+            const container = projectsSection.querySelector('.container');
+            container.insertBefore(searchContainer, container.firstChild);
+            
+            const searchInput = document.getElementById('project-search');
+            searchInput.addEventListener('focus', () => {
+                searchInput.style.borderColor = 'var(--secondary-color)';
+            });
+            
+            searchInput.addEventListener('blur', () => {
+                searchInput.style.borderColor = 'var(--border-color)';
+            });
+            
+            searchInput.addEventListener('input', (e) => {
+                const searchTerm = e.target.value.toLowerCase();
+                const projectCards = document.querySelectorAll('.project-card');
+                const categories = document.querySelectorAll('.projects-category');
+                
+                categories.forEach(category => {
+                    const cards = category.querySelectorAll('.project-card');
+                    let visibleCards = 0;
+                    
+                    cards.forEach(card => {
+                        const title = card.querySelector('.project-title').textContent.toLowerCase();
+                        const description = card.querySelector('.project-description').textContent.toLowerCase();
+                        const tags = Array.from(card.querySelectorAll('.tag')).map(tag => tag.textContent.toLowerCase()).join(' ');
+                        
+                        if (title.includes(searchTerm) || description.includes(searchTerm) || tags.includes(searchTerm)) {
+                            card.style.display = 'block';
+                            visibleCards++;
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                    
+                    // Hide category if no visible cards
+                    category.style.display = visibleCards > 0 ? 'block' : 'none';
+                });
+            });
+        }
+
+        // Add project search when projects section is active
+        document.querySelector('a[href="#projects"]').addEventListener('click', () => {
+            setTimeout(addProjectSearch, 100);
+        });
+
+        // Add theme toggle functionality
+        function addThemeToggle() {
+            const themeToggle = document.createElement('button');
+            themeToggle.innerHTML = '🌙';
+            themeToggle.className = 'theme-toggle';
+            themeToggle.style.cssText = `
+                position: fixed;
+                top: 50%;
+                right: 20px;
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                border: none;
+                background: var(--secondary-color);
+                color: white;
+                font-size: 1.2rem;
+                cursor: pointer;
+                z-index: 1001;
+                transition: all 0.3s ease;
+                box-shadow: var(--shadow);
+                transform: translateY(-50%);
+            `;
+            
+            document.body.appendChild(themeToggle);
+            
+            themeToggle.addEventListener('click', () => {
+                document.body.classList.toggle('dark-theme');
+                themeToggle.innerHTML = document.body.classList.contains('dark-theme') ? '☀️' : '🌙';
+            });
+        }
+
+        // Add dark theme styles
+        const darkThemeStyles = document.createElement('style');
+        darkThemeStyles.textContent = `
+            .dark-theme {
+                --primary-color: #3498db;
+                --secondary-color: #2ecc71;
+                --text-color: #ecf0f1;
+                --text-light: #bdc3c7;
+                --bg-color: #2c3e50;
+                --bg-light: #34495e;
+                --border-color: #4a5568;
+                --shadow: 0 2px 10px rgba(0,0,0,0.3);
+                --shadow-hover: 0 4px 20px rgba(0,0,0,0.4);
+            }
+            
+            .dark-theme header {
+                background: var(--bg-color);
+                border-bottom: 1px solid var(--border-color);
+            }
+            
+            .dark-theme .hero {
+                background: linear-gradient(135deg, var(--bg-light) 0%, var(--bg-color) 100%);
+            }
+            
+            .dark-theme .project-card,
+            .dark-theme .education-item,
+            .dark-theme .experience-item,
+            .dark-theme .award-item {
+                background: var(--bg-light);
+                border: 1px solid var(--border-color);
+            }
+            
+            .dark-theme .resume-download {
+                background: var(--bg-light);
+                border: 1px solid var(--border-color);
+            }
+            
+            .dark-theme .tag {
+                background: var(--bg-color);
+                border-color: var(--border-color);
+            }
+            
+            .dark-theme #project-search {
+                background: var(--bg-light);
+                color: var(--text-color);
+                border-color: var(--border-color);
+            }
+            
+            .dark-theme #project-search::placeholder {
+                color: var(--text-light);
+            }
+        `;
+        document.head.appendChild(darkThemeStyles);
+
+        // Initialize theme toggle
+        addThemeToggle();
+
+        // Add performance optimization
+        function optimizePerformance() {
+            // Lazy load images
+            const images = document.querySelectorAll('.project-image');
+            images.forEach(img => {
+                img.loading = 'lazy';
+            });
+            
+            // Debounce scroll events
+            let scrollTimeout;
+            window.addEventListener('scroll', () => {
+                clearTimeout(scrollTimeout);
+                scrollTimeout = setTimeout(() => {
+                    // Scroll-dependent operations here
+                }, 16); // ~60fps
+            });
+        }
+
+        // Initialize performance optimizations
+        optimizePerformance();
+
+        // Add keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Tab') {
+                document.body.classList.add('keyboard-nav');
+            }
+        });
+
+        document.addEventListener('mousedown', () => {
+            document.body.classList.remove('keyboard-nav');
+        });
+
+        // Add focus styles for keyboard navigation
+        const keyboardNavStyles = document.createElement('style');
+        keyboardNavStyles.textContent = `
+            .keyboard-nav .nav-link:focus,
+            .keyboard-nav .project-link:focus,
+            .keyboard-nav .social-links a:focus,
+            .keyboard-nav .download-btn:focus {
+                outline: 3px solid var(--secondary-color);
+                outline-offset: 2px;
+            }
+        `;
+        document.head.appendChild(keyboardNavStyles);
+    </script>
+</body>
+</html>
