@@ -492,21 +492,39 @@
         }
 
         .theme-toggle {
-            position: fixed;
-            top: 50%;
-            right: 20px;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
+            background: none;
             border: none;
-            background: var(--secondary-color);
-            color: white;
-            font-size: 1.2rem;
+            font-size: 1.5em;
             cursor: pointer;
-            z-index: 1001;
-            transition: all 0.3s ease;
-            box-shadow: var(--shadow);
+            color: var(--text-color);
+            position: absolute;
+            left: 20px; /* Adjust as needed for spacing from the left */
+            top: 50%;
             transform: translateY(-50%);
+            z-index: 1000;
+        }
+
+        .dark-theme .theme-toggle {
+            color: var(--text-color); /* Ensure visibility in dark mode */
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between; /* Adjust to create space for the button */
+            align-items: center;
+            padding: 1rem 20px;
+            background-color: var(--header-bg);
+            box-shadow: var(--shadow);
+            position: relative; /* Needed for absolute positioning of theme-toggle */
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-left: 60px; /* Adjust to move logo to the right of the button */
         }
 
         .keyboard-nav .nav-link:focus,

@@ -179,9 +179,15 @@
             const themeToggle = document.createElement('button');
             themeToggle.innerHTML = '🌙';
             themeToggle.className = 'theme-toggle';
-            
-            document.body.appendChild(themeToggle);
-            
+
+            // Append to the navigation bar
+            const nav = document.querySelector('nav');
+            if (nav) {
+                nav.prepend(themeToggle); // Prepend to place it on the left
+            } else {
+                document.body.appendChild(themeToggle); // Fallback if nav not found
+            }
+
             themeToggle.addEventListener('click', () => {
                 document.body.classList.toggle('dark-theme');
                 themeToggle.innerHTML = document.body.classList.contains('dark-theme') ? '☀️' : '🌙';
