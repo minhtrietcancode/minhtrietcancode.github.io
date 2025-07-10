@@ -1,27 +1,6 @@
         // Navigation functionality
-        const navLinks = document.querySelectorAll('.nav-link');
-        const sections = document.querySelectorAll('.page-section');
         const mobileMenu = document.getElementById('mobile-menu');
         const navLinksContainer = document.getElementById('nav-links');
-
-        // Handle navigation clicks
-        navLinks.forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const targetId = link.getAttribute('href').substring(1);
-                
-                // Remove active class from all links and sections
-                navLinks.forEach(l => l.classList.remove('active'));
-                sections.forEach(s => s.classList.remove('active'));
-                
-                // Add active class to clicked link and target section
-                link.classList.add('active');
-                document.getElementById(targetId).classList.add('active');
-                
-                // Close mobile menu if open
-                navLinksContainer.classList.remove('active');
-            });
-        });
 
         // Mobile menu toggle
         mobileMenu.addEventListener('click', () => {
@@ -38,9 +17,10 @@
         // Smooth scrolling for better UX
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
+                // Only prevent default and scroll if it's an internal anchor link
+                if (target && this.getAttribute('href').startsWith('#')) {
+                    e.preventDefault();
                     target.scrollIntoView({
                         behavior: 'smooth',
                         block: 'start'
@@ -190,32 +170,15 @@
         }
 
         // Add project search when projects section is active
-        document.querySelector('a[href="#projects"]').addEventListener('click', () => {
-            setTimeout(addProjectSearch, 100);
-        });
+        if (document.getElementById('projects')) { // Only add if projects section exists on the page
+            addProjectSearch();
+        }
 
         // Add theme toggle functionality
         function addThemeToggle() {
             const themeToggle = document.createElement('button');
             themeToggle.innerHTML = '🌙';
             themeToggle.className = 'theme-toggle';
-            themeToggle.style.cssText = `
-                position: fixed;
-                top: 50%;
-                right: 20px;
-                width: 50px;
-                height: 50px;
-                border-radius: 50%;
-                border: none;
-                background: var(--secondary-color);
-                color: white;
-                font-size: 1.2rem;
-                cursor: pointer;
-                z-index: 1001;
-                transition: all 0.3s ease;
-                box-shadow: var(--shadow);
-                transform: translateY(-50%);
-            `;
             
             document.body.appendChild(themeToggle);
             
@@ -224,60 +187,6 @@
                 themeToggle.innerHTML = document.body.classList.contains('dark-theme') ? '☀️' : '🌙';
             });
         }
-
-        // Add dark theme styles
-        const darkThemeStyles = document.createElement('style');
-        darkThemeStyles.textContent = `
-            .dark-theme {
-                --primary-color: #3498db;
-                --secondary-color: #2ecc71;
-                --text-color: #ecf0f1;
-                --text-light: #bdc3c7;
-                --bg-color: #2c3e50;
-                --bg-light: #34495e;
-                --border-color: #4a5568;
-                --shadow: 0 2px 10px rgba(0,0,0,0.3);
-                --shadow-hover: 0 4px 20px rgba(0,0,0,0.4);
-            }
-            
-            .dark-theme header {
-                background: var(--bg-color);
-                border-bottom: 1px solid var(--border-color);
-            }
-            
-            .dark-theme .hero {
-                background: linear-gradient(135deg, var(--bg-light) 0%, var(--bg-color) 100%);
-            }
-            
-            .dark-theme .project-card,
-            .dark-theme .education-item,
-            .dark-theme .experience-item,
-            .dark-theme .award-item {
-                background: var(--bg-light);
-                border: 1px solid var(--border-color);
-            }
-            
-            .dark-theme .resume-download {
-                background: var(--bg-light);
-                border: 1px solid var(--border-color);
-            }
-            
-            .dark-theme .tag {
-                background: var(--bg-color);
-                border-color: var(--border-color);
-            }
-            
-            .dark-theme #project-search {
-                background: var(--bg-light);
-                color: var(--text-color);
-                border-color: var(--border-color);
-            }
-            
-            .dark-theme #project-search::placeholder {
-                color: var(--text-light);
-            }
-        `;
-        document.head.appendChild(darkThemeStyles);
 
         // Initialize theme toggle
         addThemeToggle();
