@@ -151,6 +151,16 @@
             margin-bottom: 20px;
         }
 
+        /* Mobile adjustments for hero section text alignment */
+        @media (max-width: 767px) { /* Apply only for mobile views */
+            .hero-right p {
+                text-align: left;
+            }
+            .hero-right h1 {
+                text-align: center; /* Ensure h1 remains centered */
+            }
+        }
+
         .social-links {
             margin-top: 20px;
             display: flex;
