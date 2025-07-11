@@ -95,6 +95,7 @@
         });
 
         // Add dynamic background to hero section
+        /*
         function createFloatingElements() {
             const hero = document.querySelector('.hero');
             if (!hero) return;
@@ -116,9 +117,10 @@
                 hero.appendChild(element);
             }
         }
+        */
 
         // Initialize floating elements
-        createFloatingElements();
+        // createFloatingElements();
 
         // Add search functionality for projects
         function addProjectSearch() {

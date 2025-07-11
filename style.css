@@ -100,7 +100,7 @@
         /* Hero Section */
         .hero {
             padding: 4rem 0;
-            background: linear-gradient(135deg, var(--bg-light) 0%, white 100%);
+            /* background: linear-gradient(135deg, var(--bg-light) 0%, white 100%); */
         }
 
         .hero-content {
@@ -430,25 +430,6 @@
             }
         }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(180deg); }
-        }
-
-        .hero {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .floating-element {
-            z-index: 1;
-        }
-
-        .hero-image, .hero h1, .hero p, .social-links {
-            position: relative;
-            z-index: 2;
-        }
-
         .dark-theme {
             --primary-color: #3498db;
             --secondary-color: #2ecc71;
@@ -464,10 +445,6 @@
         .dark-theme header {
             background: var(--bg-color);
             border-bottom: 1px solid var(--border-color);
-        }
-
-        .dark-theme .hero {
-            background: linear-gradient(135deg, var(--bg-light) 0%, var(--bg-color) 100%);
         }
 
         .dark-theme .project-card,
