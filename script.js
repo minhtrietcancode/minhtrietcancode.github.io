@@ -181,7 +181,6 @@
         // Add theme toggle functionality
         function addThemeToggle() {
             const themeToggle = document.createElement('button');
-            themeToggle.innerHTML = '🌙';
             themeToggle.className = 'theme-toggle';
 
             // Append to the navigation bar
@@ -192,9 +191,37 @@
                 document.body.appendChild(themeToggle); // Fallback if nav not found
             }
 
+            // Function to apply theme
+            function applyTheme(theme) {
+                if (theme === 'dark') {
+                    document.body.classList.add('dark-theme');
+                    themeToggle.innerHTML = '☀️';
+                } else {
+                    document.body.classList.remove('dark-theme');
+                    themeToggle.innerHTML = '🌙';
+                }
+            }
+
+            // Check for saved theme on load
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                applyTheme(savedTheme);
+            } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                // Default to dark theme if OS prefers dark
+                applyTheme('dark');
+            } else {
+                // Default to light theme
+                applyTheme('light');
+            }
+
             themeToggle.addEventListener('click', () => {
-                document.body.classList.toggle('dark-theme');
-                themeToggle.innerHTML = document.body.classList.contains('dark-theme') ? '☀️' : '🌙';
+                if (document.body.classList.contains('dark-theme')) {
+                    applyTheme('light');
+                    localStorage.setItem('theme', 'light');
+                } else {
+                    applyTheme('dark');
+                    localStorage.setItem('theme', 'dark');
+                }
             });
         }
 
