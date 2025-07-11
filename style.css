@@ -330,34 +330,6 @@
             background: var(--primary-color);
         }
 
-        /* Resume Section */
-        .resume-download {
-            text-align: center;
-            padding: 3rem 0;
-            background: var(--bg-light);
-            border-radius: 8px;
-        }
-
-        .resume-download h2 {
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-        }
-
-        .download-btn {
-            display: inline-block;
-            background: var(--secondary-color);
-            color: white;
-            padding: 1rem 2rem;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 1.1rem;
-            transition: background 0.3s ease;
-        }
-
-        .download-btn:hover {
-            background: var(--primary-color);
-        }
-
         /* Footer */
         footer {
             background: var(--bg-color);
