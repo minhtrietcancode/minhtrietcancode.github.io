@@ -27,7 +27,6 @@
         /* Header & Navigation */
         header {
             background: white;
-            box-shadow: var(--shadow);
             position: fixed;
             width: 100%;
             top: 0;
@@ -522,7 +521,6 @@
             align-items: center;
             padding: 1rem 20px;
             background-color: var(--header-bg);
-            box-shadow: var(--shadow);
             position: relative; /* Needed for absolute positioning of theme-toggle */
             width: 100%;
             z-index: 1000;
