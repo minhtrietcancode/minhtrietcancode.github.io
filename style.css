@@ -499,15 +499,18 @@
             color: var(--secondary-color);
         } 
 
-        .dark-theme .item-title,
-        .dark-theme .item-subtitle {
-            color: white;
-        } 
-
-        .dark-theme .about-section h2 {
+        .dark-theme .item-title {
             color: white;
         }
 
-        .dark-theme .highlight-text {
+        .dark-theme .item-subtitle {
             color: var(--secondary-color);
+        }
+
+        .dark-theme .highlight-blue-dark {
+            color: var(--secondary-color);
+        }
+
+        .dark-theme .about-section h2 {
+            color: white;
         } 
