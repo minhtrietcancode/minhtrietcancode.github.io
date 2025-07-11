@@ -27,10 +27,6 @@
         /* Header & Navigation */
         header {
             background: white;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
         }
 
         nav {
@@ -76,7 +72,7 @@
 
         /* Main Content */
         main {
-            margin-top: 30px;
+            margin-top: 0px; /* Adjusted to accommodate header height */
         }
 
         .container {
@@ -97,7 +93,7 @@
 
         /* Hero Section */
         .hero {
-            padding: 2rem 0;
+            padding: 0.5rem 0; /* Adjusted to move content closer to navigation */
             /* background: linear-gradient(135deg, var(--bg-light) 0%, white 100%); */
         }
 
@@ -425,10 +421,6 @@
                 height: 150px;
                 font-size: 3rem;
             }
-
-            .social-links {
-                /* Removed flex-direction: column; and align-items: center; to keep links in a row */
-            }
         }
 
         .dark-theme {
@@ -517,7 +509,6 @@
             justify-content: space-between; /* Adjust to create space for the button */
             align-items: center;
             padding: 1rem 20px;
-            background-color: var(--header-bg);
             position: relative; /* Needed for absolute positioning of theme-toggle */
             width: 100%;
             z-index: 1000;
