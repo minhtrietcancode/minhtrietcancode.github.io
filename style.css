@@ -6,7 +6,7 @@
 
         :root {
             --primary-color: #2c3e50;
-            --secondary-color: #3498db;
+            --secondary-color: #3498db; /* Blue */
             --accent-color: #e74c3c;
             --text-color: #333;
             --text-light: #666;
@@ -174,7 +174,7 @@
         }
 
         .social-links a:hover {
-            background-color: #0056b3;
+            background-color: var(--primary-color); /* Use primary color for consistency */
         }
 
         /* About Section */
@@ -313,7 +313,7 @@
             padding: 0.3rem 0.8rem;
             border-radius: 20px;
             font-size: 0.8rem;
-            border: 1px solid var(--border-color);
+            border: 1px solid black; /* Black border for light mode */
         }
 
         .project-link {
@@ -396,15 +396,16 @@
         }
 
         .dark-theme {
-            --primary-color: #3498db;
-            --secondary-color: #2ecc71;
-            --text-color: #ecf0f1;
-            --text-light: #bdc3c7;
-            --bg-color: #2c3e50;
-            --bg-light: #34495e;
-            --border-color: #4a5568;
-            --shadow: 0 2px 10px rgba(0,0,0,0.3);
-            --shadow-hover: 0 4px 20px rgba(0,0,0,0.4);
+            --primary-color: #007bff; /* A vibrant blue for primary elements */
+            --secondary-color: #007bff; /* Changed to blue */
+            --accent-color: #dc3545; /* A clear red for accents */
+            --text-color: #f8f9fa; /* Very light grey for main text */
+            --text-light: #ced4da; /* Lighter grey for secondary text */
+            --bg-color: #000000; /* Black background */
+            --bg-light: #1a1a1a; /* Dark grey for lighter background elements like cards */
+            --border-color: #333333; /* Darker grey for borders */
+            --shadow: 0 2px 10px rgba(255,255,255,0.1); /* Lighter shadow for dark background */
+            --shadow-hover: 0 4px 20px rgba(255,255,255,0.15); /* Lighter shadow for dark background on hover */
         }
 
         .dark-theme header {
@@ -426,7 +427,7 @@
 
         .dark-theme .tag {
             background: var(--bg-color);
-            border-color: var(--border-color);
+            border-color: white; /* White border for dark mode */
         }
 
         .dark-theme #project-search {
@@ -503,5 +504,23 @@
 
         .dark-theme footer {
             background: var(--bg-color);
-            color: white; /* Ensure text remains white in dark mode */
+            color: var(--text-color); /* Ensure text remains white/light in dark mode */
+        } 
+
+        .highlight-text {
+            font-weight: bold;
+            color: var(--secondary-color);
+        } 
+
+        .dark-theme .item-title,
+        .dark-theme .item-subtitle {
+            color: white;
+        } 
+
+        .dark-theme .about-section h2 {
+            color: white;
+        }
+
+        .dark-theme .highlight-text {
+            color: var(--secondary-color);
         } 
