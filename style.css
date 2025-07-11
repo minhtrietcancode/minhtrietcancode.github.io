@@ -76,8 +76,7 @@
 
         /* Main Content */
         main {
-            margin-top: 20px;
-            min-height: calc(100vh - 80px);
+            margin-top: 30px;
         }
 
         .container {
@@ -89,7 +88,7 @@
         /* Page Sections */
         .page-section {
             display: none;
-            padding: 3rem 0;
+            padding: 33px;
         }
 
         .page-section.active {
