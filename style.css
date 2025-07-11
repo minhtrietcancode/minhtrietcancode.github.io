@@ -99,9 +99,36 @@
 
         /* Hero Section */
         .hero {
-            text-align: center;
             padding: 4rem 0;
             background: linear-gradient(135deg, var(--bg-light) 0%, white 100%);
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column; /* Default for mobile */
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero-left,
+        .hero-right {
+            width: 100%; /* Default for mobile */
+        }
+
+        @media (min-width: 768px) {
+            .hero-content {
+                flex-direction: row; /* Two columns for larger screens */
+                text-align: left;
+            }
+
+            .hero-left {
+                width: 30%; /* Adjust as needed */
+                margin-right: 20px; /* Space between columns */
+            }
+
+            .hero-right {
+                width: 65%; /* Adjust as needed */
+            }
         }
 
         .hero-image {
@@ -116,23 +143,22 @@
             font-size: 4rem;
             color: white;
             box-shadow: var(--shadow);
+            margin-bottom: 20px;
         }
 
         .hero h1 {
-            font-size: 3rem;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
+            font-size: 2.5em;
+            margin-bottom: 10px;
         }
 
         .hero p {
-            font-size: 1.2rem;
-            color: var(--text-light);
-            max-width: 600px;
-            margin: 0 auto;
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 20px;
         }
 
         .social-links {
-            margin-top: 2rem;
+            margin-top: 20px;
             display: flex;
             justify-content: center;
             gap: 1rem;
@@ -140,16 +166,17 @@
 
         .social-links a {
             display: inline-block;
-            padding: 0.5rem 1rem;
-            background: var(--secondary-color);
+            background-color: #007bff;
             color: white;
-            text-decoration: none;
+            padding: 10px 15px;
             border-radius: 5px;
-            transition: background 0.3s ease;
+            text-decoration: none;
+            margin: 0 5px;
+            transition: background-color 0.3s ease;
         }
 
         .social-links a:hover {
-            background: var(--primary-color);
+            background-color: #0056b3;
         }
 
         /* About Section */
