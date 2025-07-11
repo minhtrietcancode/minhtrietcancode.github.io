@@ -427,8 +427,7 @@
             }
 
             .social-links {
-                flex-direction: column;
-                align-items: center;
+                /* Removed flex-direction: column; and align-items: center; to keep links in a row */
             }
         }
 
