@@ -447,7 +447,6 @@
 
         .dark-theme header {
             background: var(--bg-color);
-            border-bottom: 1px solid var(--border-color);
         }
 
         .dark-theme .project-card,
