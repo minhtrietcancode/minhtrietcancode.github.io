@@ -271,4 +271,29 @@
                 outline-offset: 2px;
             }
         `;
-        document.head.appendChild(keyboardNavStyles); 
+        document.head.appendChild(keyboardNavStyles);
+
+        // Add dropdown functionality for project categories
+        function addProjectDropdowns() {
+            const dropdownHeaders = document.querySelectorAll('.dropdown-header');
+
+            dropdownHeaders.forEach(header => {
+                header.addEventListener('click', () => {
+                    const content = header.nextElementSibling;
+                    const icon = header.querySelector('.dropdown-icon');
+
+                    if (content.classList.contains('expanded')) {
+                        content.classList.remove('expanded');
+                        icon.classList.remove('expanded');
+                    } else {
+                        content.classList.add('expanded');
+                        icon.classList.add('expanded');
+                    }
+                });
+            });
+        }
+
+        // Initialize project dropdowns when projects section is active
+        if (document.getElementById('projects')) { 
+            addProjectDropdowns();
+        } 
