@@ -397,8 +397,16 @@
                 display: flex;
             }
 
+            .dark-theme .nav-links {
+                background: var(--bg-color);
+            }
+
             .mobile-menu {
                 display: block;
+            }
+
+            .dark-theme .mobile-menu {
+                color: var(--text-color); /* Ensure visibility in dark mode */
             }
 
             .hero h1 {
