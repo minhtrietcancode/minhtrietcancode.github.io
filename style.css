@@ -487,17 +487,17 @@
         .keyboard-nav .download-btn:focus {
             outline: 3px solid var(--secondary-color);
             outline-offset: 2px;
-        } 
+        }
 
         .dark-theme footer {
             background: var(--bg-color);
             color: var(--text-color); /* Ensure text remains white/light in dark mode */
-        } 
+        }
 
         .highlight-text {
             font-weight: bold;
             color: var(--secondary-color);
-        } 
+        }
 
         .dark-theme .item-title {
             color: white;
@@ -513,4 +513,13 @@
 
         .dark-theme .about-section h2 {
             color: white;
+        }
+
+        .dark-theme .projects-category h3,
+        .dark-theme .project-title {
+            color: white;
+        }
+
+        .dark-theme .highlight-text {
+            color: var(--secondary-color);
         } 
