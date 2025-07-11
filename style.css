@@ -365,11 +365,11 @@
 
         /* Footer */
         footer {
-            background: var(--primary-color);
-            color: white;
+            background: var(--bg-color);
+            color: var(--text-color); /* Changed to text-color for visibility in light mode */
             text-align: center;
             padding: 2rem 0;
-            margin-top: 3rem;
+            /* margin-top: 3rem; */
         }
 
         /* Responsive Design */
@@ -538,4 +538,9 @@
         .keyboard-nav .download-btn:focus {
             outline: 3px solid var(--secondary-color);
             outline-offset: 2px;
+        } 
+
+        .dark-theme footer {
+            background: var(--bg-color);
+            color: white; /* Ensure text remains white in dark mode */
         } 
