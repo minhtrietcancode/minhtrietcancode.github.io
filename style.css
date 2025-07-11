@@ -322,7 +322,7 @@
             color: white;
             padding: 0.5rem 1rem;
             text-decoration: none;
-            border-radius: 5px;
+            border-radius: 20px;
             transition: background 0.3s ease;
         }
 
