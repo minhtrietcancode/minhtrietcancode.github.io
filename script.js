@@ -63,6 +63,7 @@
         });
 
         // Add typing effect to hero text
+        /*
         function typeWriter(element, text, speed = 50) {
             let i = 0;
             element.innerHTML = '';
@@ -93,6 +94,7 @@
                 }, 500);
             }
         });
+        */
 
         // Add dynamic background to hero section
         /*
