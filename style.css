@@ -281,7 +281,6 @@
         }
 
         .dropdown-content {
-            display: none; /* Hidden by default */
             overflow: hidden;
             transition: max-height 0.5s ease-out, opacity 0.5s ease-out; /* For smooth animation */
             max-height: 0; /* Initial state for animation */
@@ -289,8 +288,6 @@
         }
 
         .dropdown-content.expanded {
-            display: block;
-            max-height: 2000px; /* A value large enough to contain all content */
             opacity: 1;
         }
 

@@ -283,9 +283,11 @@
                     const icon = header.querySelector('.dropdown-icon');
 
                     if (content.classList.contains('expanded')) {
+                        content.style.maxHeight = null; // Reset max-height
                         content.classList.remove('expanded');
                         icon.classList.remove('expanded');
                     } else {
+                        content.style.maxHeight = content.scrollHeight + "px"; // Set max-height to scrollHeight
                         content.classList.add('expanded');
                         icon.classList.add('expanded');
                     }
