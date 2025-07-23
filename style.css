@@ -200,6 +200,10 @@
             padding-bottom: 0.5rem;
         }
 
+        .about-category {
+            margin-bottom: 3rem;
+        }
+
         .education-item,
         .experience-item,
         .award-item {

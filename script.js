@@ -274,14 +274,19 @@
         document.head.appendChild(keyboardNavStyles);
 
         // Add dropdown functionality for project categories
-        function addProjectDropdowns() {
+        function addDropdownFunctionality() {
             const dropdownHeaders = document.querySelectorAll('.dropdown-header');
 
             dropdownHeaders.forEach(header => {
-                header.addEventListener('click', () => {
-                    const content = header.nextElementSibling;
-                    const icon = header.querySelector('.dropdown-icon');
+                const content = header.nextElementSibling;
+                const icon = header.querySelector('.dropdown-icon');
 
+                // Set initial state to collapsed
+                content.style.maxHeight = null;
+                content.classList.remove('expanded');
+                icon.classList.remove('expanded');
+
+                header.addEventListener('click', () => {
                     if (content.classList.contains('expanded')) {
                         content.style.maxHeight = null; // Reset max-height
                         content.classList.remove('expanded');
@@ -297,5 +302,10 @@
 
         // Initialize project dropdowns when projects section is active
         if (document.getElementById('projects')) { 
-            addProjectDropdowns();
+            addDropdownFunctionality();
+        }
+
+        // Initialize about section dropdowns when about section is active
+        if (document.getElementById('about')) {
+            addDropdownFunctionality();
         } 
