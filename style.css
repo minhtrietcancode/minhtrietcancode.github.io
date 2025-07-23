@@ -84,7 +84,7 @@
         /* Page Sections */
         .page-section {
             display: none;
-            padding: 33px;
+            padding: 50px 33px 33px 33px;
         }
 
         .page-section.active {
