@@ -248,6 +248,53 @@
             margin-top: 0.5rem;
         }
 
+        /* Gallery Section */
+        .gallery-subsection {
+            margin-bottom: 2rem;
+            padding: 1rem;
+            background: var(--bg-light);
+            border-radius: 8px;
+            border: 1px solid black; /* Black border for light mode */
+        }
+
+        .gallery-subsection h4 {
+            color: var(--primary-color);
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 0.5rem;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Increased min-width for larger images */
+            gap: 1rem;
+        }
+
+        .gallery-grid img {
+            width: 100%;
+            height: auto; /* Allow images to maintain their aspect ratio */
+            max-height: 250px; /* Set a max-height to prevent overly tall images */
+            object-fit: contain; /* Ensure the entire image is visible, preventing cropping */
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .gallery-grid img:hover {
+            transform: scale(1.05);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .dark-theme .gallery-subsection {
+            background: var(--bg-light);
+            border: 1px solid white;
+        }
+
+        .dark-theme .gallery-subsection h4 {
+            color: white;
+        }
+
         /* Projects Section */
         .projects-category {
             margin-bottom: 3rem;
