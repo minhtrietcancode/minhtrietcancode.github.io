@@ -17,9 +17,11 @@
         // Smooth scrolling for better UX
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
+                // Check if the link is internal to the current page
+                const isInternalLink = this.pathname === window.location.pathname || this.pathname === '' || this.pathname === '/';
                 const target = document.querySelector(this.getAttribute('href'));
-                // Only prevent default and scroll if it's an internal anchor link
-                if (target && this.getAttribute('href').startsWith('#')) {
+                
+                if (target && isInternalLink && this.getAttribute('href').startsWith('#')) {
                     e.preventDefault();
                     target.scrollIntoView({
                         behavior: 'smooth',
@@ -62,71 +64,11 @@
             observer.observe(card);
         });
 
-        // Add typing effect to hero text
-        /*
-        function typeWriter(element, text, speed = 50) {
-            let i = 0;
-            element.innerHTML = '';
-            function type() {
-                if (i < text.length) {
-                    element.innerHTML += text.charAt(i);
-                    i++;
-                    setTimeout(type, speed);
-                }
-            }
-            type();
-        }
-
-        // Initialize typing effect on page load
-        window.addEventListener('load', () => {
-            const heroTitle = document.querySelector('.hero h1');
-            const heroDescription = document.querySelector('.hero p');
-            
-            if (heroTitle && heroDescription) {
-                const originalTitle = heroTitle.textContent;
-                const originalDescription = heroDescription.textContent;
-                
-                setTimeout(() => {
-                    typeWriter(heroTitle, originalTitle, 100);
-                    setTimeout(() => {
-                        typeWriter(heroDescription, originalDescription, 30);
-                    }, originalTitle.length * 100 + 500);
-                }, 500);
-            }
-        });
-        */
-
-        // Add dynamic background to hero section
-        /*
-        function createFloatingElements() {
-            const hero = document.querySelector('.hero');
-            if (!hero) return;
-
-            for (let i = 0; i < 5; i++) {
-                const element = document.createElement('div');
-                element.className = 'floating-element';
-                element.style.cssText = `
-                    position: absolute;
-                    width: ${Math.random() * 20 + 10}px;
-                    height: ${Math.random() * 20 + 10}px;
-                    background: rgba(52, 152, 219, 0.1);
-                    border-radius: 50%;
-                    left: ${Math.random() * 100}%;
-                    top: ${Math.random() * 100}%;
-                    animation: float ${Math.random() * 10 + 5}s ease-in-out infinite;
-                    pointer-events: none;
-                `;
-                hero.appendChild(element);
-            }
-        }
-        */
-
-        // Initialize floating elements
-        // createFloatingElements();
-
         // Add search functionality for projects
         function addProjectSearch() {
             const projectsSection = document.getElementById('projects');
+            if (!projectsSection) return; // Only run if projects section exists
+
             const searchContainer = document.createElement('div');
             searchContainer.className = 'search-container';
             searchContainer.innerHTML = `
@@ -134,48 +76,47 @@
             `;
             
             const container = projectsSection.querySelector('.container');
-            container.insertBefore(searchContainer, container.firstChild);
+            if (container) {
+                container.insertBefore(searchContainer, container.firstChild);
+            }
             
             const searchInput = document.getElementById('project-search');
-            searchInput.addEventListener('focus', () => {
-                searchInput.style.borderColor = 'var(--secondary-color)';
-            });
-            
-            searchInput.addEventListener('blur', () => {
-                searchInput.style.borderColor = 'var(--border-color)';
-            });
-            
-            searchInput.addEventListener('input', (e) => {
-                const searchTerm = e.target.value.toLowerCase();
-                const projectCards = document.querySelectorAll('.project-card');
-                const categories = document.querySelectorAll('.projects-category');
-                
-                categories.forEach(category => {
-                    const cards = category.querySelectorAll('.project-card');
-                    let visibleCards = 0;
-                    
-                    cards.forEach(card => {
-                        const title = card.querySelector('.project-title').textContent.toLowerCase();
-                        const description = card.querySelector('.project-description').textContent.toLowerCase();
-                        const tags = Array.from(card.querySelectorAll('.tag')).map(tag => tag.textContent.toLowerCase()).join(' ');
-                        
-                        if (title.includes(searchTerm) || description.includes(searchTerm) || tags.includes(searchTerm)) {
-                            card.style.display = 'block';
-                            visibleCards++;
-                        } else {
-                            card.style.display = 'none';
-                        }
-                    });
-                    
-                    // Hide category if no visible cards
-                    category.style.display = visibleCards > 0 ? 'block' : 'none';
+            if (searchInput) {
+                searchInput.addEventListener('focus', () => {
+                    searchInput.style.borderColor = 'var(--secondary-color)';
                 });
-            });
-        }
-
-        // Add project search when projects section is active
-        if (document.getElementById('projects')) { // Only add if projects section exists on the page
-            addProjectSearch();
+                
+                searchInput.addEventListener('blur', () => {
+                    searchInput.style.borderColor = 'var(--border-color)';
+                });
+                
+                searchInput.addEventListener('input', (e) => {
+                    const searchTerm = e.target.value.toLowerCase();
+                    const projectCards = document.querySelectorAll('.project-card');
+                    const categories = document.querySelectorAll('.projects-category');
+                    
+                    categories.forEach(category => {
+                        const cards = category.querySelectorAll('.project-card');
+                        let visibleCards = 0;
+                        
+                        cards.forEach(card => {
+                            const title = card.querySelector('.project-title').textContent.toLowerCase();
+                            const description = card.querySelector('.project-description').textContent.toLowerCase();
+                            const tags = Array.from(card.querySelectorAll('.tag')).map(tag => tag.textContent.toLowerCase()).join(' ');
+                            
+                            if (title.includes(searchTerm) || description.includes(searchTerm) || tags.includes(searchTerm)) {
+                                card.style.display = 'block';
+                                visibleCards++;
+                            } else {
+                                card.style.display = 'none';
+                            }
+                        });
+                        
+                        // Hide category if no visible cards
+                        category.style.display = visibleCards > 0 ? 'block' : 'none';
+                    });
+                });
+            }
         }
 
         // Add theme toggle functionality
@@ -186,9 +127,9 @@
             // Append to the navigation bar
             const nav = document.querySelector('nav');
             if (nav) {
-                nav.prepend(themeToggle); // Prepend to place it on the left
+                nav.prepend(themeToggle);
             } else {
-                document.body.appendChild(themeToggle); // Fallback if nav not found
+                document.body.appendChild(themeToggle);
             }
 
             // Function to apply theme
@@ -225,9 +166,6 @@
             });
         }
 
-        // Initialize theme toggle
-        addThemeToggle();
-
         // Add performance optimization
         function optimizePerformance() {
             // Lazy load images
@@ -245,9 +183,6 @@
                 }, 16); // ~60fps
             });
         }
-
-        // Initialize performance optimizations
-        optimizePerformance();
 
         // Add keyboard navigation
         document.addEventListener('keydown', (e) => {
@@ -273,7 +208,7 @@
         `;
         document.head.appendChild(keyboardNavStyles);
 
-        // Add dropdown functionality for project categories
+        // Add dropdown functionality for project categories and about sections
         function addDropdownFunctionality() {
             const dropdownHeaders = document.querySelectorAll('.dropdown-header');
 
@@ -300,12 +235,10 @@
             });
         }
 
-        // Initialize project dropdowns when projects section is active
-        if (document.getElementById('projects')) { 
-            addDropdownFunctionality();
-        }
-
-        // Initialize about section dropdowns when about section is active
-        if (document.getElementById('about')) {
-            addDropdownFunctionality();
-        } 
+        // Initialize functions on document load
+        document.addEventListener('DOMContentLoaded', () => {
+            addThemeToggle();
+            optimizePerformance();
+            addProjectSearch(); // This will now correctly check if #projects exists
+            addDropdownFunctionality(); // This will now correctly check if #about or #projects exists
+        }); 

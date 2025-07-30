@@ -1,0 +1,122 @@
+/* Hero Section */
+.hero {
+    padding: 0.5rem 0; /* Adjusted to move content closer to navigation */
+    /* background: linear-gradient(135deg, var(--bg-light) 0%, white 100%); */
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: column; /* Default for mobile */
+    align-items: center;
+    text-align: center;
+}
+
+.hero-left,
+.hero-right {
+    width: 100%; /* Default for mobile */
+}
+
+@media (min-width: 768px) {
+    .hero-content {
+        flex-direction: row; /* Two columns for larger screens */
+        text-align: left;
+    }
+
+    .hero-left {
+        width: 30%; /* Adjust as needed */
+        margin-right: 20px; /* Space between columns */
+    }
+
+    .hero-right {
+        width: 65%; /* Adjust as needed */
+    }
+}
+
+.hero-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: var(--secondary-color);
+    margin: 0 auto 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    color: white;
+    box-shadow: var(--shadow);
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Mobile adjustments for hero section text alignment */
+@media (max-width: 767px) { /* Apply only for mobile views */
+    .hero-right p {
+        text-align: left;
+    }
+    .hero-right h1 {
+        text-align: center; /* Ensure h1 remains centered */
+    }
+}
+
+.social-links {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #007bff;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    text-decoration: none;
+    margin: 0 5px;
+    transition: background-color 0.3s ease;
+    font-size: 1.2em; /* Adjust icon size */
+}
+
+.social-links a:hover {
+    background-color: var(--primary-color); /* Use primary color for consistency */
+}
+
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        padding: 2rem 0;
+    }
+
+    .hero-image {
+        width: 150px;
+        height: 150px;
+        font-size: 3rem;
+    }
+}
+
+.dark-theme .resume-download {
+    background: var(--bg-light);
+    border: 1px solid var(--border-color);
+} 

@@ -1,0 +1,181 @@
+/* About Section */
+.about-section {
+    margin-bottom: 3rem;
+}
+
+.about-section h2 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    border-bottom: 3px solid var(--secondary-color);
+    padding-bottom: 0.5rem;
+}
+
+.about-category {
+    margin-bottom: 3rem;
+}
+
+.education-item,
+.experience-item,
+.award-item {
+    background: var(--bg-light);
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    border: 1px solid black; /* Black border for light mode */
+}
+
+.item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+}
+
+.item-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.item-date {
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+.item-subtitle {
+    color: var(--secondary-color);
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.item-description {
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+.item-description ul {
+    margin-left: 1.5rem;
+    margin-top: 0.5rem;
+}
+
+/* Gallery Section */
+.gallery-subsection {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background: var(--bg-light);
+    border-radius: 8px;
+    border: 1px solid black; /* Black border for light mode */
+}
+
+.gallery-subsection h4 {
+    color: var(--primary-color);
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid var(--secondary-color);
+    padding-bottom: 0.5rem;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Increased min-width for larger images */
+    gap: 1rem;
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: auto; /* Allow images to maintain their aspect ratio */
+    max-height: 250px; /* Set a max-height to prevent overly tall images */
+    object-fit: contain; /* Ensure the entire image is visible, preventing cropping */
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-grid img:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-hover);
+}
+
+.dropdown-header {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background: var(--bg-light);
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    box-shadow: var(--shadow);
+    transition: background 0.3s ease;
+}
+
+.dropdown-header:hover {
+    background: var(--border-color);
+}
+
+.dropdown-header h3 {
+    margin-bottom: 0; /* Remove default margin */
+    border-left: none; /* Remove left border */
+    padding-left: 0; /* Remove left padding */
+    font-size: 1.5rem; /* Ensure consistent font size */
+}
+
+.dropdown-icon {
+    font-size: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.dropdown-icon.expanded {
+    transform: rotate(180deg);
+}
+
+.dropdown-content {
+    overflow: hidden;
+    transition: max-height 0.5s ease-out, opacity 0.5s ease-out; /* For smooth animation */
+    max-height: 0; /* Initial state for animation */
+    opacity: 0; /* Initial state for animation */
+}
+
+.dropdown-content.expanded {
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
+    .item-header {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
+
+.dark-theme .gallery-subsection {
+    background: var(--bg-light);
+    border: 1px solid white;
+}
+
+.dark-theme .gallery-subsection h4 {
+    color: white;
+}
+
+.dark-theme .education-item,
+.dark-theme .experience-item,
+.dark-theme .award-item {
+    background: var(--bg-light);
+    border: 1px solid white;
+}
+
+.dark-theme .item-title {
+    color: white;
+}
+
+.dark-theme .item-subtitle {
+    color: var(--secondary-color);
+}
+
+.dark-theme .highlight-blue-dark {
+    color: var(--secondary-color);
+}
+
+.dark-theme .about-section h2 {
+    color: white;
+} 
