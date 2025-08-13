@@ -73,6 +73,7 @@ function truncateText(element, wordLimit) {
 // Function to expand text
 function expandText(element) {
     element.innerHTML = `${element.dataset.originalText} <span class="read-less">Read Less</span>`;
+    updateDropdownHeight(element);
 }
 
 // Add event listeners for Read More/Read Less
@@ -86,6 +87,7 @@ document.addEventListener('click', (e) => {
         const descriptionElement = e.target.closest('.project-description');
         if (descriptionElement) {
             truncateText(descriptionElement, 30); // Re-truncate after expanding
+            updateDropdownHeight(descriptionElement);
         }
     }
 });
@@ -261,6 +263,14 @@ function addDropdownFunctionality() {
     });
 }
 
+// Helper function to update dropdown height
+function updateDropdownHeight(element) {
+    const dropdownContent = element.closest('.dropdown-content');
+    if (dropdownContent && dropdownContent.classList.contains('expanded')) {
+        dropdownContent.style.maxHeight = dropdownContent.scrollHeight + "px";
+    }
+}
+
 // Initialize functions on document load
 document.addEventListener('DOMContentLoaded', () => {
     addThemeToggle();
@@ -268,6 +278,11 @@ document.addEventListener('DOMContentLoaded', () => {
     addProjectSearch(); // This will now correctly check if #projects exists
     addDropdownFunctionality(); // This will now correctly check if #about or #projects exists
     loadFeaturedProjects();
+    
+    // Apply truncation to all project descriptions after they are loaded
+    document.querySelectorAll('.project-description').forEach(descriptionElement => {
+        truncateText(descriptionElement, 30); // You can adjust the word limit as needed
+    });
 }); 
 
 function loadFeaturedProjects() {
