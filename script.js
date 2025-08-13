@@ -252,6 +252,7 @@ function loadFeaturedProjects() {
         'project-rag-migration-law-chatbot',
         'project-cristiano-ronaldo-detection',
         'project-linkedin-talent-search-agent',
+        'project-futuretrack-careerguidance',
         'project-australian-accident-research',
         'project-optimizing-airplane-boarding-and-disembarking'
     ];
