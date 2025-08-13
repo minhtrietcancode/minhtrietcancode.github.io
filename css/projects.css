@@ -170,6 +170,28 @@
     color: var(--text-light);
     margin-bottom: 1rem;
     line-height: 1.6;
+    /* Added for truncation */
+    position: relative;
+}
+
+.project-description .read-more,
+.project-description .read-less {
+    color: var(--secondary-color);
+    cursor: pointer;
+    font-weight: bold;
+    white-space: nowrap;
+    margin-left: 5px;
+}
+
+.project-description .read-more:hover,
+.project-description .read-less:hover {
+    text-decoration: underline;
+}
+
+/* Dark Theme Support for Read More/Less */
+.dark-theme .project-description .read-more,
+.dark-theme .project-description .read-less {
+    color: var(--accent-color); /* Adjust color for dark theme if needed */
 }
 
 .project-tags {

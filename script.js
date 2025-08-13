@@ -56,12 +56,38 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-// Observe all project cards
-document.querySelectorAll('.project-card, .education-item, .experience-item, .award-item').forEach(card => {
-    card.style.opacity = '0';
-    card.style.transform = 'translateY(20px)';
-    card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    observer.observe(card);
+// Function to truncate text and add "Read More" button
+function truncateText(element, wordLimit) {
+    const originalText = element.dataset.originalText || element.textContent;
+    element.dataset.originalText = originalText; // Store original text
+
+    const words = originalText.split(' ');
+    if (words.length > wordLimit) {
+        const truncatedText = words.slice(0, wordLimit).join(' ') + '...';
+        element.innerHTML = `${truncatedText} <span class="read-more">Read More</span>`;
+    } else {
+        element.textContent = originalText;
+    }
+}
+
+// Function to expand text
+function expandText(element) {
+    element.innerHTML = `${element.dataset.originalText} <span class="read-less">Read Less</span>`;
+}
+
+// Add event listeners for Read More/Read Less
+document.addEventListener('click', (e) => {
+    if (e.target.classList.contains('read-more')) {
+        const descriptionElement = e.target.closest('.project-description');
+        if (descriptionElement) {
+            expandText(descriptionElement);
+        }
+    } else if (e.target.classList.contains('read-less')) {
+        const descriptionElement = e.target.closest('.project-description');
+        if (descriptionElement) {
+            truncateText(descriptionElement, 30); // Re-truncate after expanding
+        }
+    }
 });
 
 // Add search functionality for projects
@@ -282,6 +308,12 @@ function loadFeaturedProjects() {
             clonedCard.style.transition = '';
 
             featuredProjectsGrid.appendChild(clonedCard);
+
+            // Truncate project descriptions for cloned cards
+            const clonedDescriptionElement = clonedCard.querySelector('.project-description');
+            if (clonedDescriptionElement) {
+                truncateText(clonedDescriptionElement, 30); // Limit to 30 words for featured projects
+            }
 
             // Observe the cloned card for animation, if IntersectionObserver is set up
             if (typeof observer !== 'undefined' && observer instanceof IntersectionObserver) {
