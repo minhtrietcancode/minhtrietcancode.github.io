@@ -1,0 +1,65 @@
+[
+    {
+      "id": "project-rag-migration-law-chatbot",
+      "title": "RAG - Migration Act Assistant",
+      "description": "One of my biggest projects - geting the inspiration as an international student used to struggle with thousands of hours finding piece of information about Migration Act problems. This project leverage RAG technique and introduce a searching structure + algorithm that reduce searh time + embedding resource by more than 10000 times!!! And create a fundamental to be extended to AS MUCH DOCUMENTS AS WE WANT.",
+      "image": "../image/projects/ai_related/rag migration law chatbot.png",
+      "imageAlt": "RAG Migration Law Chatbot",
+      "tags": ["AI Agent", "OpenAI", "Python", "NLP", "RAG", "Sentence Transformer", "PyTorch", "Optimization"],
+      "link": "https://github.com/minhtrietcancode/rag-migration-law-chatbot"
+    },
+    {
+      "id": "project-tool-calling-ai-agent",
+      "title": "Tool Calling - AI Agent",
+      "description": "An AI Agent which integrated 3 tools that can not only chat as normal but can performing calculation, checking weather, and downloading images for user once needed.",
+      "image": "../image/projects/ai_related/chatbot agent.jpg",
+      "imageAlt": "Chatbot Agent",
+      "tags": ["AI Agent", "OpenAI", "Python", "Selenium", "WeatherAPI", "PIL", "Regex"],
+      "link": "https://github.com/minhtrietcancode/tool-calling-chatbot"
+    },
+    {
+      "id": "project-news-classification",
+      "title": "News Classification",
+      "description": "A basic NLP projects that crawling 100+ webpages and then classify these pages' content into 4 popular categories. This project fine-tuned a pre-trained RoBERTa model to classify these 4 categories.",
+      "image": "../image/projects/ai_related/news-classification.jpg",
+      "imageAlt": "News Classification",
+      "tags": ["Deep Learning", "NLP", "Classification", "Python", "PyTorch", "Transformer", "RoBERTa"],
+      "link": "https://github.com/minhtrietcancode/news-classification"
+    },
+    {
+      "id": "project-cristiano-ronaldo-detection",
+      "title": "Cristiano Ronaldo Detection",
+      "description": "Inspired by 10+ years watching Ronaldo, I have fine-tuned a pre-trained yolov8 model to detect Ronaldo on images",
+      "image": "../image/projects/ai_related/ronaldo.jpg",
+      "imageAlt": "Ronaldo Detection",
+      "tags": ["Deep Learning", "Computer Vision", "Detection", "Python", "YOLO", "Ultralytics"],
+      "link": "https://github.com/minhtrietcancode/cristiano-ronaldo-detector"
+    },
+    {
+      "id": "project-dog-cat-classification",
+      "title": "Dog-Cat Classification",
+      "description": "A simple project to classify whether an image is dog or cat. Achieved by fine-tuned a pre-trained VGG-16 model with more than 500 images.",
+      "image": "../image/projects/ai_related/dog cat.jpg",
+      "imageAlt": "Dog Cat Classification",
+      "tags": ["Deep Learning", "Computer Vision", "Classification", "CNN", "Python", "PyTorch", "TensorFlow", "VGG-16"],
+      "link": "https://github.com/minhtrietcancode/dog-cat-classification"
+    },
+    {
+      "id": "project-linkedin-talent-search-agent",
+      "title": "LinkedIn Talent Search Agent",
+      "description": "Inspired through thousand of hours swapping LinkedIn, I have developed an AI-powered system that will automatically search and summarize best matched candidates for a given job description.",
+      "image": "../image/projects/ai_related/talent search.jpg",
+      "imageAlt": "LinkedIn Talent Search Agent",
+      "tags": ["AI Agent", "NLP", "MCP", "Selenium", "BeautifulSoup", "Python", "LangChain"],
+      "link": "https://github.com/minhtrietcancode/linkedin-talent-search-agent"
+    },
+    {
+      "id": "project-rag-based-resume-insights",
+      "title": "RAG-Based Resume Insights",
+      "description": "Leverages Retrieval-Augmented Generation (RAG) to provide intelligent insights and answer questions based on resume content. Interactive chatbot for resume analysis.",
+      "image": "../image/projects/ai_related/rag based resume.png",
+      "imageAlt": "RAG-Based Resume Insights",
+      "tags": ["AI Agent", "RAG", "LLMs", "NLP", "FAISS", "Transformer"],
+      "link": "https://github.com/minhtrietcancode/rag-based-resume-insights"
+    }
+]

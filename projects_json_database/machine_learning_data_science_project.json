@@ -1,0 +1,38 @@
+[
+    {
+      "id": "project-futuretrack-careerguidance",
+      "title": "FutureTrack - Market Analysis",
+      "description": "A big project that predict employment / market trend for next 10 years of 40+ majors, also involving auto-scraped contents for these 40+ majors: career path, instruction, ... for 200+ students",
+      "image": "../image/projects/machine_learning/futuretrack.jpg",
+      "imageAlt": "FutureTrack-CareerGuidance",
+      "tags": ["Python", "Scikit-learn", "Matplotlib", "Data Analysis", "Machine Learning", "Regressions"],
+      "link": "https://futuretrack-careerguidance.github.io/"
+    },
+    {
+      "id": "project-australian-accident-research",
+      "title": "Australian Accident Research",
+      "description": "Investiagte the influence of infrastructure factor such as light condition, road geometry, road surface on accident severity. Also developed some ML models to predict the accident severity based on these factors.",
+      "image": "../image/projects/machine_learning/australian accident.jpg",
+      "imageAlt": "Australian Accident Research",
+      "tags": ["Data Analysis", "Visualization", "Machine Learning", "Python", "Scikit-learn"],
+      "link": "https://github.com/minhtrietcancode/australian-accident-research"
+    },
+    {
+      "id": "project-nba-serious-injury-analysis",
+      "title": "NBA Serious Injury Analysis",
+      "description": "As a big fan of sports, especially with football and basketball, who used to suffer from and understand the impacts of injuries with athelete. I have completed a simple analysis of the impacts of a few factors with serious injury in NBA.",
+      "image": "../image/projects/machine_learning/nba-serious-injury.jpg",
+      "imageAlt": "nba-serious-injury",
+      "tags": ["Python", "Pandas", "Seaborn", "Matplotlib", "Data Analysis"],
+      "link": "https://github.com/minhtrietcancode/nba-serious-injury"
+    },
+    {
+      "id": "project-optimizing-airplane-boarding-and-disembarking",
+      "title": "Optimizing Airplane Boarding and Disembarking",
+      "description": "Develops efficient models for airplane boarding and disembarking processes through simulations and mathematical optimization, including pandemic-aware solutions.",
+      "image": "../image/projects/machine_learning/boarding.jpg",
+      "imageAlt": "Optimizing Airplane Boarding and Disembarking",
+      "tags": ["Optimization", "Simulation", "Mathematical Modeling", "Python", "NumPy"],
+      "link": "https://github.com/minhtrietcancode/Optimizing-Airplane-Boarding-and-Disembarking"
+    }
+]

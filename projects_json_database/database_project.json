@@ -1,0 +1,20 @@
+[
+    {
+      "id": "project-ogre-database-design",
+      "title": "OGRE Database Design",
+      "description": "Design and implementation of a MySQL relational database for OGRE platform, enabling ethical and cost-effective access to generative AI technologies.",
+      "image": "../image/projects/database/orge database design.jpg",
+      "imageAlt": "OGRE Database Design",
+      "tags": ["Database Design", "MySQL", "ER Modeling", "Generative AI"],
+      "link": "https://github.com/minhtrietcancode/OGRE-Database-Design"
+    },
+    {
+      "id": "project-slarc-query-collection",
+      "title": "SLARC Query Collection",
+      "description": "Demonstrates advanced SQL querying skills for a communication platform database, providing insights into user behavior and content moderation.",
+      "image": "../image/projects/database/slarc query.jpg",
+      "imageAlt": "SLARC Query Collection",
+      "tags": ["SQL", "Database Querying", "Data Analysis", "MySQL"],
+      "link": "https://github.com/minhtrietcancode/SLARC-Query-Collection"
+    }
+]

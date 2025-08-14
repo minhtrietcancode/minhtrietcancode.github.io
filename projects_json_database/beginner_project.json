@@ -1,0 +1,38 @@
+[
+  {
+    "id": "project-the-zoomerbinis-project",
+    "title": "The Zoomerbinis Project",
+    "description": "This project, \"The Zoomerbinis Project\", offers Python-based solutions for efficiently managing Zoomerbini study groups",
+    "image": "../image/projects/beginner/zoomerbinis.png",
+    "imageAlt": "zoomerbinis projects",
+    "tags": ["Greedy Algorithms", "Python", "Game Simulation"],
+    "link": "https://github.com/minhtrietcancode/The-Zoomerbinis-Project"
+  },
+  {
+    "id": "project-the-optimal-cleaner-robot",
+    "title": "The Optimal Cleaner Robot",
+    "description": "A C program that calculates the shortest path for a robot to clean all dirt on a 2D grid map using the Breadth-First Search (BFS) algorithm.",
+    "image": "../image/projects/beginner/cleaner robot.jpg",
+    "imageAlt": "The Optimal Cleaner Robot",
+    "tags": ["Robotics", "BFS", "C", "Pathfinding"],
+    "link": "https://github.com/minhtrietcancode/The-Optimal-Cleaner-Robot"
+  },
+  {
+    "id": "project-data-parsing-and-reporting-toolkit",
+    "title": "Data Parsing and Reporting Toolkit",
+    "description": "A C-based application for efficiently processing, sorting, and summarizing structured data from Tab-Separated Values (TSV) files.",
+    "image": "../image/projects/beginner/data parsing and reporting toolkit.jpg",
+    "imageAlt": "Data Parsing and Reporting Toolkit",
+    "tags": ["Data Parsing", "C", "Algorithms", "TSV"],
+    "link": "https://github.com/minhtrietcancode/Data-Parsing-and-Reporting-Toolkit"
+  },
+  {
+    "id": "project-elementary-cellular-automata-simulator",
+    "title": "Elementary Cellular Automata Simulator",
+    "description": "A C-implemented tool for simulating and analyzing elementary cellular automata, solving the density classification problem through algorithmic analysis.",
+    "image": "../image/projects/beginner/cellular.png",
+    "imageAlt": "Elementary Cellular Automata Simulator",
+    "tags": ["Cellular Automata", "Simulation", "C", "Algorithms"],
+    "link": "https://github.com/minhtrietcancode/Elementary-Cellular-Automata-Simulator"
+  }
+]

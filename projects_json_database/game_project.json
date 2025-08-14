@@ -1,0 +1,11 @@
+[
+    {
+      "id": "project-donkey-kong-game",
+      "title": "Donkey Kong Game",
+      "description": "A Java game developed with Bagel library, utilizing the OOP concepts. This game contains multiple levels with complex grading scheme.",
+      "image": "../image/projects/software/donkey kong.png",
+      "imageAlt": "donkey kong game",
+      "tags": ["Java", "Bagel", "OOP"],
+      "link": "https://github.com/minhtrietcancode/donkey-kong-game"
+    }
+]
