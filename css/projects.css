@@ -145,7 +145,7 @@
     border: 1px solid black; /* Black border for light mode */
     position: relative; /* Add this line */
     width: 100%;
-    max-width: 320px; /* Limit the maximum width of each card */
+    max-width: 330px; /* Limit the maximum width of each card */
 }
 
 .featured-project-section .project-card {
