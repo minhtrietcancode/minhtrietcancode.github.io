@@ -133,8 +133,9 @@
 
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Adjusted for responsiveness and smaller cards */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 1.5rem;
+    justify-items: start;
 }
 
 .project-card {
@@ -143,6 +144,7 @@
     overflow: hidden;
     border: 1px solid black; /* Black border for light mode */
     position: relative; /* Add this line */
+    width: 100%;
     max-width: 350px; /* Limit the maximum width of each card */
 }
 
