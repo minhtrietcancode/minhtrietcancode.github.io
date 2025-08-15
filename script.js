@@ -86,7 +86,7 @@ document.addEventListener('click', (e) => {
     } else if (e.target.classList.contains('read-less')) {
         const descriptionElement = e.target.closest('.project-description');
         if (descriptionElement) {
-            truncateText(descriptionElement, 0); // Re-truncate after expanding
+            truncateText(descriptionElement, 30); // Re-truncate after expanding
             updateDropdownHeight(descriptionElement);
         }
     }
@@ -236,13 +236,19 @@ keyboardNavStyles.textContent = `
 `;
 document.head.appendChild(keyboardNavStyles);
 
-// Add dropdown functionality for project categories and about sections
-function addDropdownFunctionality() {
+// Add dropdown functionality for static pages (like About Me)
+function addStaticDropdownFunctionality() {
     const dropdownHeaders = document.querySelectorAll('.dropdown-header');
 
     dropdownHeaders.forEach(header => {
         const content = header.nextElementSibling;
         const icon = header.querySelector('.dropdown-icon');
+
+        // Skip if this header already has event listeners (avoid duplicates)
+        if (header.hasAttribute('data-dropdown-initialized')) {
+            return;
+        }
+        header.setAttribute('data-dropdown-initialized', 'true');
 
         // Set initial state to collapsed
         content.style.maxHeight = null;
@@ -260,6 +266,29 @@ function addDropdownFunctionality() {
                 icon.classList.add('expanded');
             }
         });
+    });
+}
+
+// Add dropdown functionality for a specific dynamically created header
+function addDynamicDropdownFunctionality(header) {
+    const content = header.nextElementSibling;
+    const icon = header.querySelector('.dropdown-icon');
+
+    // Set initial state to collapsed
+    content.style.maxHeight = null;
+    content.classList.remove('expanded');
+    icon.classList.remove('expanded');
+
+    header.addEventListener('click', () => {
+        if (content.classList.contains('expanded')) {
+            content.style.maxHeight = null;
+            content.classList.remove('expanded');
+            icon.classList.remove('expanded');
+        } else {
+            content.style.maxHeight = content.scrollHeight + "px";
+            content.classList.add('expanded');
+            icon.classList.add('expanded');
+        }
     });
 }
 
@@ -355,11 +384,14 @@ async function loadAllProjectCategories(categories) {
     
     // Apply truncation to all project descriptions after they are loaded
     document.querySelectorAll('.project-description').forEach(descriptionElement => {
-        truncateText(descriptionElement, 0);
+        truncateText(descriptionElement, 30);
     });
     
-    // Initialize dropdown functionality after all categories are loaded
-    addDropdownFunctionality();
+    // Initialize dropdown functionality for all newly created project category headers
+    const newDropdownHeaders = document.querySelectorAll('#all-projects-container .dropdown-header');
+    newDropdownHeaders.forEach(header => {
+        addDynamicDropdownFunctionality(header);
+    });
 }
 
 // Updated function to load featured projects from JSON
@@ -397,7 +429,7 @@ async function loadFeaturedProjectsFromJSON() {
                 // Truncate project descriptions for featured projects
                 const clonedDescriptionElement = clonedCard.querySelector('.project-description');
                 if (clonedDescriptionElement) {
-                    truncateText(clonedDescriptionElement, 0);
+                    truncateText(clonedDescriptionElement, 30);
                 }
 
                 // Observe the cloned card for animation
@@ -423,7 +455,8 @@ document.addEventListener('DOMContentLoaded', () => {
     addThemeToggle();
     optimizePerformance();
     addProjectSearch();
+    addStaticDropdownFunctionality(); // This will handle About Me page and any existing static dropdowns
     
-    // Load projects dynamically
+    // Load projects dynamically (this will handle its own dropdown functionality)
     loadProjectsFromConfig();
 });
