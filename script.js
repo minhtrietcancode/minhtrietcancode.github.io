@@ -86,7 +86,7 @@ document.addEventListener('click', (e) => {
     } else if (e.target.classList.contains('read-less')) {
         const descriptionElement = e.target.closest('.project-description');
         if (descriptionElement) {
-            truncateText(descriptionElement, 30); // Re-truncate after expanding
+            truncateText(descriptionElement, 0); // Re-truncate after expanding
             updateDropdownHeight(descriptionElement);
         }
     }
@@ -355,7 +355,7 @@ async function loadAllProjectCategories(categories) {
     
     // Apply truncation to all project descriptions after they are loaded
     document.querySelectorAll('.project-description').forEach(descriptionElement => {
-        truncateText(descriptionElement, 30);
+        truncateText(descriptionElement, 0);
     });
     
     // Initialize dropdown functionality after all categories are loaded
@@ -397,7 +397,7 @@ async function loadFeaturedProjectsFromJSON() {
                 // Truncate project descriptions for featured projects
                 const clonedDescriptionElement = clonedCard.querySelector('.project-description');
                 if (clonedDescriptionElement) {
-                    truncateText(clonedDescriptionElement, 30);
+                    truncateText(clonedDescriptionElement, 0);
                 }
 
                 // Observe the cloned card for animation
