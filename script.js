@@ -271,69 +271,159 @@ function updateDropdownHeight(element) {
     }
 }
 
-// Initialize functions on document load
-document.addEventListener('DOMContentLoaded', () => {
-    addThemeToggle();
-    optimizePerformance();
-    addProjectSearch(); // This will now correctly check if #projects exists
-    addDropdownFunctionality(); // This will now correctly check if #about or #projects exists
-    loadFeaturedProjects();
+// NEW FUNCTIONS FOR DYNAMIC PROJECT LOADING
+
+// Global variable to store all projects for featured section
+let allProjects = {};
+
+// Function to create project card HTML
+function createProjectCard(project) {
+    return `
+        <div class="project-card" id="${project.id}">
+            <div class="project-image">
+                <img src="${project.image}" alt="${project.imageAlt}" style="width:100%; height:100%; object-fit:cover;">
+            </div>
+            <div class="project-content">
+                <div class="project-title">${project.title}</div>
+                <div class="project-description">
+                    ${project.description}
+                </div>
+                <div class="project-tags">
+                    ${project.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                </div>
+                <a href="${project.link}" class="project-link" target="_blank">View Project</a>
+            </div>
+        </div>
+    `;
+}
+
+// Function to load config and initialize project loading
+async function loadProjectsFromConfig() {
+    try {
+        // Load config file
+        const configResponse = await fetch('../projects_json_database/config.json');
+        const config = await configResponse.json();
+        
+        // Load all project categories
+        await loadAllProjectCategories(config.project_categories);
+        
+        // Load featured projects after all projects are loaded
+        await loadFeaturedProjectsFromJSON();
+        
+    } catch (error) {
+        console.error('Error loading projects config:', error);
+    }
+}
+
+// Function to load all project categories
+async function loadAllProjectCategories(categories) {
+    const allProjectsContainer = document.getElementById('all-projects-container');
+    if (!allProjectsContainer) return;
+
+    for (const category of categories) {
+        try {
+            // Load projects for this category
+            const projectsResponse = await fetch(`../projects_json_database/${category.json_path}`);
+            const projects = await projectsResponse.json();
+            
+            // Store projects in global object for featured section
+            projects.forEach(project => {
+                allProjects[project.id] = project;
+            });
+            
+            // Create category HTML
+            const categoryHTML = `
+                <div class="projects-category">
+                    <div class="dropdown-header" id="${category.id}-header">
+                        <h3>${category.title}</h3>
+                        <span class="dropdown-icon">&#9660;</span>
+                    </div>
+                    <div class="dropdown-content" id="${category.id}-content">
+                        <div class="projects-grid">
+                            ${projects.map(project => createProjectCard(project)).join('')}
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            allProjectsContainer.innerHTML += categoryHTML;
+            
+        } catch (error) {
+            console.error(`Error loading projects for category ${category.title}:`, error);
+        }
+    }
     
     // Apply truncation to all project descriptions after they are loaded
     document.querySelectorAll('.project-description').forEach(descriptionElement => {
-        truncateText(descriptionElement, 30); // You can adjust the word limit as needed
+        truncateText(descriptionElement, 30);
     });
-}); 
+    
+    // Initialize dropdown functionality after all categories are loaded
+    addDropdownFunctionality();
+}
 
-function loadFeaturedProjects() {
-    const featuredProjectsGrid = document.getElementById('featured-projects-grid');
-    if (!featuredProjectsGrid) return; // Only run if featured projects section exists
+// Updated function to load featured projects from JSON
+async function loadFeaturedProjectsFromJSON() {
+    try {
+        // Load featured projects config
+        const featuredResponse = await fetch('../projects_json_database/featured_project.json');
+        const featuredConfig = await featuredResponse.json();
+        
+        const featuredProjectsGrid = document.getElementById('featured-projects-grid');
+        if (!featuredProjectsGrid) return;
 
-    const featuredProjectIds = [
-        'project-rag-migration-law-chatbot',
-        'project-cristiano-ronaldo-detection',
-        'project-linkedin-talent-search-agent',
-        'project-futuretrack-careerguidance',
-        'project-australian-accident-research',
-        'project-optimizing-airplane-boarding-and-disembarking'
-    ];
-
-    featuredProjectIds.forEach(id => {
-        const projectCard = document.getElementById(id);
-        if (projectCard) {
-            const clonedCard = projectCard.cloneNode(true);
-            
-            // Add pin icon and featured badge if they don't exist
-            if (!clonedCard.querySelector('.pin-icon')) {
+        featuredConfig.featured_projects.forEach(projectId => {
+            const project = allProjects[projectId];
+            if (project) {
+                // Create project card
+                const projectCardHTML = createProjectCard(project);
+                const tempDiv = document.createElement('div');
+                tempDiv.innerHTML = projectCardHTML;
+                const clonedCard = tempDiv.firstElementChild;
+                
+                // Add pin icon and featured badge
                 const pinIcon = document.createElement('div');
                 pinIcon.className = 'pin-icon';
                 pinIcon.innerHTML = '📌';
                 clonedCard.prepend(pinIcon);
-            }
-            if (!clonedCard.querySelector('.featured-badge')) {
+                
                 const featuredBadge = document.createElement('div');
                 featuredBadge.className = 'featured-badge';
                 featuredBadge.textContent = 'FEATURED';
                 clonedCard.prepend(featuredBadge);
+
+                featuredProjectsGrid.appendChild(clonedCard);
+
+                // Truncate project descriptions for featured projects
+                const clonedDescriptionElement = clonedCard.querySelector('.project-description');
+                if (clonedDescriptionElement) {
+                    truncateText(clonedDescriptionElement, 30);
+                }
+
+                // Observe the cloned card for animation
+                if (typeof observer !== 'undefined' && observer instanceof IntersectionObserver) {
+                    observer.observe(clonedCard);
+                }
             }
+        });
+        
+    } catch (error) {
+        console.error('Error loading featured projects:', error);
+    }
+}
 
-            // Remove any inline styles for animation that might conflict
-            clonedCard.style.opacity = '';
-            clonedCard.style.transform = '';
-            clonedCard.style.transition = '';
+// Updated loadFeaturedProjects function (keeping for compatibility)
+function loadFeaturedProjects() {
+    // This function is now handled by loadFeaturedProjectsFromJSON
+    // Keeping it empty for compatibility with existing code
+}
 
-            featuredProjectsGrid.appendChild(clonedCard);
-
-            // Truncate project descriptions for cloned cards
-            const clonedDescriptionElement = clonedCard.querySelector('.project-description');
-            if (clonedDescriptionElement) {
-                truncateText(clonedDescriptionElement, 30); // Limit to 30 words for featured projects
-            }
-
-            // Observe the cloned card for animation, if IntersectionObserver is set up
-            if (typeof observer !== 'undefined' && observer instanceof IntersectionObserver) {
-                observer.observe(clonedCard);
-            }
-        }
-    });
-} 
+// Initialize functions on document load
+document.addEventListener('DOMContentLoaded', () => {
+    addThemeToggle();
+    optimizePerformance();
+    addProjectSearch();
+    
+    // Load projects dynamically
+    loadProjectsFromConfig();
+});
