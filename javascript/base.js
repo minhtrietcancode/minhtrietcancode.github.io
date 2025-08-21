@@ -19,10 +19,35 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         // Check if the link is internal to the current page
         const isInternalLink = this.pathname === window.location.pathname || this.pathname === '' || this.pathname === '/';
-        const target = document.querySelector(this.getAttribute('href'));
+        const targetId = this.getAttribute('href');
+        const target = document.querySelector(targetId);
         
-        if (target && isInternalLink && this.getAttribute('href').startsWith('#')) {
+        if (target && isInternalLink && targetId.startsWith('#')) {
             e.preventDefault();
+
+            // Update active class for nav links
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+            });
+            this.classList.add('active');
+
+            // Remove 'active' from all page sections
+            document.querySelectorAll('.page-section').forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // Add 'active' to the target section
+            target.classList.add('active');
+
+            // If the target is the home section, also activate the stories section
+            if (targetId === '#home') {
+                const storiesSection = document.getElementById('stories');
+                if (storiesSection) {
+                    storiesSection.classList.add('active');
+                }
+            }
+
+            // Smooth scroll to the target
             target.scrollIntoView({
                 behavior: 'smooth',
                 block: 'start'
