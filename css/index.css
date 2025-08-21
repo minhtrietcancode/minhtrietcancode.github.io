@@ -282,6 +282,38 @@
     color: var(--text-light);
 } 
 
+.story-images-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Space between images */
+    margin-top: 1rem;
+    justify-content: flex-start; /* Align images to the start of the row */
+}
+
+.story-image {
+    width: calc(25% - 8px); /* 4 images per row, accounting for gap */
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px; /* Slightly rounded corners for images */
+    object-fit: cover; /* Ensures images cover the area without distortion */
+    box-shadow: var(--shadow); /* Add a subtle shadow to images */
+}
+
+/* Adjust for fewer than 4 images in a row */
+.story-images-container:has(.story-image:nth-last-child(1):nth-child(1)) .story-image { /* 1 image */
+    width: 100%;
+}
+.story-images-container:has(.story-image:nth-last-child(2):nth-child(1)) .story-image, /* 2 images */
+.story-images-container:has(.story-image:nth-last-child(2):nth-child(2)) .story-image {
+    width: calc(50% - 5px);
+}
+.story-images-container:has(.story-image:nth-last-child(3):nth-child(1)) .story-image, /* 3 images */
+.story-images-container:has(.story-image:nth-last-child(3):nth-child(2)) .story-image,
+.story-images-container:has(.story-image:nth-last-child(3):nth-child(3)) .story-image {
+    width: calc(33.33% - 6.66px); /* Roughly 10px gap distributed */
+}
+
+
 @media (max-width: 767px) {
     .story-entry {
         max-width: 100%; /* Ensure it takes full width on mobile, respecting container padding */

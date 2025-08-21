@@ -44,6 +44,21 @@ async function loadStories() {
 
             storyEntry.appendChild(storyTitlePreview);
             storyEntry.appendChild(storyDescriptionFull);
+
+            if (story.images_path && story.images && story.images.length > 0) {
+                const imagesContainer = document.createElement('div');
+                imagesContainer.classList.add('story-images-container');
+
+                story.images.forEach(imageName => {
+                    const img = document.createElement('img');
+                    img.src = `${story.images_path}/${imageName}`;
+                    img.alt = story.title;
+                    img.classList.add('story-image');
+                    imagesContainer.appendChild(img);
+                });
+                storyEntry.appendChild(imagesContainer);
+            }
+
             storiesSection.appendChild(storyEntry);
         });
 
