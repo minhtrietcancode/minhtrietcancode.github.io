@@ -230,6 +230,17 @@
     margin-left: 5px;
 }
 
+.story-description-full .read-more {
+    color: var(--secondary-color);
+    cursor: pointer;
+    font-weight: bold;
+    white-space: nowrap;
+    margin-left: 5px;
+    display: block;
+    margin-top: 10px;
+    text-align: right;
+}
+
 .story-title-preview .read-more:hover {
     text-decoration: underline;
 }
@@ -241,6 +252,10 @@
 
 .dark-theme .story-title-preview .read-more {
     color: var(--accent-color); /* Match project read more/less for dark theme */
+}
+
+.dark-theme .story-description-full .read-more {
+    color: var(--accent-color);
 }
 
 .story-description-full {
