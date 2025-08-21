@@ -1,0 +1,17 @@
+[
+    {
+        "date": "5/8/2025",
+        "title": "I did it mom",
+        "description": "This is the full description of the first story. It can be a few paragraphs long, containing all the details about the event. For example, it could talk about the challenges faced, the journey taken, and the ultimate triumph. It's a testament to perseverance and hard work. You can add more paragraphs here to make the story richer and more engaging. This section is designed to hold all the narrative content that is initially hidden to keep the homepage clean and concise."
+    },
+    {
+        "date": "6/15/2024",
+        "title": "New Project Launch",
+        "description": "Today marks the successful launch of my new AI-powered chatbot agent project! It was a challenging but rewarding experience, involving countless hours of coding, debugging, and refining the model. The positive feedback from early testers has been incredibly encouraging, motivating me to continue exploring the frontiers of artificial intelligence. This project demonstrates my commitment to leveraging technology for practical solutions and showcases my skills in natural language processing and machine learning."
+    },
+    {
+        "date": "7/1/2024",
+        "title": "Learning to cook",
+        "description": "Learning to cook has been an interesting journey. From burnt toast to delicious meals, it's all part of the process. I'm excited to explore new recipes and culinary techniques."
+    }
+]
