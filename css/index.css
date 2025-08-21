@@ -282,37 +282,73 @@
     color: var(--text-light);
 } 
 
+/* Updated Story Images Container - Matching About Page Style */
 .story-images-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px; /* Space between images */
-    margin-top: 1rem;
-    justify-content: flex-start; /* Align images to the start of the row */
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Always 4 columns */
+    gap: 15px; /* Consistent spacing like About page */
+    margin-top: 1.5rem;
+    width: 100%;
 }
 
 .story-image {
-    width: calc(25% - 8px); /* 4 images per row, accounting for gap */
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px; /* Slightly rounded corners for images */
-    object-fit: cover; /* Ensures images cover the area without distortion */
-    box-shadow: var(--shadow); /* Add a subtle shadow to images */
-}
-
-/* Adjust for fewer than 4 images in a row */
-.story-images-container:has(.story-image:nth-last-child(1):nth-child(1)) .story-image { /* 1 image */
     width: 100%;
-}
-.story-images-container:has(.story-image:nth-last-child(2):nth-child(1)) .story-image, /* 2 images */
-.story-images-container:has(.story-image:nth-last-child(2):nth-child(2)) .story-image {
-    width: calc(50% - 5px);
-}
-.story-images-container:has(.story-image:nth-last-child(3):nth-child(1)) .story-image, /* 3 images */
-.story-images-container:has(.story-image:nth-last-child(3):nth-child(2)) .story-image,
-.story-images-container:has(.story-image:nth-last-child(3):nth-child(3)) .story-image {
-    width: calc(33.33% - 6.66px); /* Roughly 10px gap distributed */
+    height: 200px; /* Fixed height for consistency */
+    border-radius: 12px; /* Matching About page border radius */
+    object-fit: cover; /* Ensures proper image fitting */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow like About page */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+    cursor: pointer;
 }
 
+.story-image:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
+}
+
+/* Responsive adjustments for story images */
+@media (max-width: 1024px) {
+    .story-images-container {
+        grid-template-columns: repeat(3, 1fr); /* 3 columns on tablets */
+        gap: 12px;
+    }
+    
+    .story-image {
+        height: 180px;
+    }
+}
+
+@media (max-width: 768px) {
+    .story-images-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on mobile */
+        gap: 10px;
+    }
+    
+    .story-image {
+        height: 150px;
+        border-radius: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .story-images-container {
+        grid-template-columns: 1fr; /* Single column on very small screens */
+        gap: 8px;
+    }
+    
+    .story-image {
+        height: 200px;
+    }
+}
+
+/* Dark theme adjustments for story images */
+.dark-theme .story-image {
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+}
+
+.dark-theme .story-image:hover {
+    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.15);
+}
 
 @media (max-width: 767px) {
     .story-entry {
@@ -330,4 +366,4 @@
         align-self: flex-start; /* Align the button to the left */
         margin-left: 0;
     }
-} 
+}
