@@ -24,6 +24,8 @@
             "Together with Bach Tran, Kien Pham, and Minh Dang, we made history by achieving the best performance ever for a Vietnamese team - winning the Meritorious Prize and ranking 8th globally at the International Mathematical Modeling Challenge 2022.",
             "That year’s problem was both exciting and challenging: designing a mathematical model to optimize airplane boarding and disembarking. We built models, pipelines, and even coded simulations under intense pressure. I still remember spending 3 days learning Python from scratch just to simulate passenger movements - staying up late, debugging endlessly, and somehow making it work. Looking back, it feels surreal that we actually wrote and ran that code!",
             "This was truly an unforgettable experience - not only for the result but for the teamwork, creativity, and resilience it demanded. It’s a milestone that continues to inspire me on my journey."
-        ]
+        ],
+        "images_path": "image/stories/immc",
+        "images": ["team.jpg", "cert.jpg", "barry1.jpg", "barry2.jpg"]
     }    
 ]
