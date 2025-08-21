@@ -251,7 +251,7 @@
 }
 
 .story-description-full.expanded {
-    max-height: 500px; /* Adjust based on expected content height */
+    max-height: 2000px; /* Adjusted to a larger value to prevent content cutoff */
     opacity: 1;
     margin-top: 1rem; /* Apply margin only when expanded */
 }
