@@ -197,23 +197,29 @@
 /* Media query for laptop view */
 @media (min-width: 768px) {
     .story-entry {
-        max-width: 700px; /* Make it wider */
+        max-width: 1200px; /* Make it wider */
         padding: 1rem 2rem; /* Adjust padding for shorter visual height */
         display: flex;
         flex-direction: column;
         justify-content: center;
-        align-items: center;
-        text-align: center;
+        align-items: flex-start; /* Align content to the left */
+        text-align: left;
     }
 }
 
 .story-title-preview {
     margin-bottom: 0;
     font-size: 1.1em; /* Adjust font size as needed */
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .story-title-preview strong {
     color: var(--primary-color); /* Ensure heading is visible */
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .story-title-preview .read-more {
@@ -259,4 +265,22 @@
 
 .dark-theme .story-description-full p {
     color: var(--text-light);
+} 
+
+@media (max-width: 767px) {
+    .story-entry {
+        max-width: 100%; /* Ensure it takes full width on mobile, respecting container padding */
+    }
+    .story-title-preview {
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+    }
+    .story-title-preview strong {
+        margin-bottom: 5px; /* Add some space between title and read more */
+    }
+    .story-title-preview .read-more {
+        align-self: flex-end; /* Align the button to the right */
+        margin-left: 0;
+    }
 } 
