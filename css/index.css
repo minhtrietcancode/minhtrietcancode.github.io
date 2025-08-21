@@ -222,4 +222,27 @@
 
 .dark-theme .story-title-preview .read-more {
     color: var(--accent-color); /* Match project read more/less for dark theme */
+}
+
+.story-description-full {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out, opacity 0.5s ease-out;
+    opacity: 0;
+    margin-top: 1rem;
+}
+
+.story-description-full.expanded {
+    max-height: 500px; /* Adjust based on expected content height */
+    opacity: 1;
+}
+
+.story-description-full p {
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+    color: var(--text-color);
+}
+
+.dark-theme .story-description-full p {
+    color: var(--text-light);
 } 
