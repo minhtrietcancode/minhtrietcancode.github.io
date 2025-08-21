@@ -38,13 +38,18 @@ async function loadStories() {
             readMoreButton.textContent = '...Read More';
             storyTitlePreview.appendChild(readMoreButton);
 
+            // Create expandable content container
+            const expandableContent = document.createElement('div');
+            expandableContent.classList.add('story-expandable-content');
+
             const storyDescriptionFull = document.createElement('div');
             storyDescriptionFull.classList.add('story-description-full');
             storyDescriptionFull.innerHTML = story.description.map(p => `<p>${p}</p>`).join('');
 
-            storyEntry.appendChild(storyTitlePreview);
-            storyEntry.appendChild(storyDescriptionFull);
+            // Add description to expandable content
+            expandableContent.appendChild(storyDescriptionFull);
 
+            // Add images to expandable content if they exist
             if (story.images_path && story.images && story.images.length > 0) {
                 const imagesContainer = document.createElement('div');
                 imagesContainer.classList.add('story-images-container');
@@ -56,8 +61,11 @@ async function loadStories() {
                     img.classList.add('story-image');
                     imagesContainer.appendChild(img);
                 });
-                storyEntry.appendChild(imagesContainer);
+                expandableContent.appendChild(imagesContainer);
             }
+
+            storyEntry.appendChild(storyTitlePreview);
+            storyEntry.appendChild(expandableContent);
 
             storiesSection.appendChild(storyEntry);
         });
@@ -67,15 +75,14 @@ async function loadStories() {
             button.addEventListener('click', function(e) {
                 e.preventDefault();
                 const storyEntry = this.closest('.story-entry');
-                const storyTitlePreview = storyEntry.querySelector('.story-title-preview');
-                const fullDescription = storyEntry.querySelector('.story-description-full');
+                const expandableContent = storyEntry.querySelector('.story-expandable-content');
                 const readMoreButton = this;
                 let readLessButton = storyEntry.querySelector('.read-less');
 
-                if (fullDescription) {
-                    fullDescription.classList.toggle('expanded');
+                if (expandableContent) {
+                    expandableContent.classList.toggle('expanded');
 
-                    if (fullDescription.classList.contains('expanded')) {
+                    if (expandableContent.classList.contains('expanded')) {
                         readMoreButton.style.display = 'none'; // Hide "Read More"
 
                         if (!readLessButton) {
@@ -83,10 +90,10 @@ async function loadStories() {
                             readLessButton.classList.add('read-more'); // Re-use read-more class for styling
                             readLessButton.classList.add('read-less');
                             readLessButton.textContent = '...Read Less';
-                            fullDescription.appendChild(readLessButton);
+                            expandableContent.appendChild(readLessButton); // Append to expandable content (after images)
                             readLessButton.addEventListener('click', function(event) {
                                 event.preventDefault();
-                                fullDescription.classList.remove('expanded');
+                                expandableContent.classList.remove('expanded');
                                 readLessButton.remove(); // Remove "Read Less"
                                 readMoreButton.style.display = 'inline'; // Show "Read More"
                                 event.stopPropagation();

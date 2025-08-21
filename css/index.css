@@ -230,17 +230,6 @@
     margin-left: 5px;
 }
 
-.story-description-full .read-more {
-    color: var(--secondary-color);
-    cursor: pointer;
-    font-weight: bold;
-    white-space: nowrap;
-    margin-left: 5px;
-    display: block;
-    margin-top: 10px;
-    text-align: right;
-}
-
 .story-title-preview .read-more:hover {
     text-decoration: underline;
 }
@@ -254,23 +243,21 @@
     color: var(--accent-color); /* Match project read more/less for dark theme */
 }
 
-.dark-theme .story-description-full .read-more {
-    color: var(--accent-color);
-}
-
-.story-description-full {
+/* New expandable content container - handles both description and images */
+.story-expandable-content {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.5s ease-out, opacity 0.5s ease-out;
     opacity: 0;
 }
 
-.story-description-full.expanded {
-    max-height: 2000px; /* Adjusted to a larger value to prevent content cutoff */
+.story-expandable-content.expanded {
+    max-height: 3000px; /* Increased to accommodate both text and images */
     opacity: 1;
     margin-top: 1rem; /* Apply margin only when expanded */
 }
 
+/* Story description styling */
 .story-description-full p {
     margin-bottom: 0.5rem;
     line-height: 1.5;
@@ -280,9 +267,28 @@
 
 .dark-theme .story-description-full p {
     color: var(--text-light);
-} 
+}
 
-/* Updated Story Images Container - Matching About Page Style */
+/* Read Less button styling - appears after images */
+.story-expandable-content .read-more {
+    color: var(--secondary-color);
+    cursor: pointer;
+    font-weight: bold;
+    white-space: nowrap;
+    display: block;
+    margin-top: 15px; /* Space after images */
+    text-align: right;
+}
+
+.story-expandable-content .read-more:hover {
+    text-decoration: underline;
+}
+
+.dark-theme .story-expandable-content .read-more {
+    color: var(--accent-color);
+}
+
+/* Updated Story Images Container - Now hidden by default */
 .story-images-container {
     display: grid;
     grid-template-columns: repeat(4, 1fr); /* Always 4 columns */
