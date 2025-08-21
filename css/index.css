@@ -194,6 +194,19 @@
     margin-right: auto; /* Center the card */
 }
 
+/* Media query for laptop view */
+@media (min-width: 768px) {
+    .story-entry {
+        max-width: 700px; /* Make it wider */
+        padding: 1rem 2rem; /* Adjust padding for shorter visual height */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+}
+
 .story-title-preview {
     margin-bottom: 0;
     font-size: 1.1em; /* Adjust font size as needed */
@@ -229,12 +242,12 @@
     overflow: hidden;
     transition: max-height 0.5s ease-out, opacity 0.5s ease-out;
     opacity: 0;
-    margin-top: 1rem;
 }
 
 .story-description-full.expanded {
     max-height: 500px; /* Adjust based on expected content height */
     opacity: 1;
+    margin-top: 1rem; /* Apply margin only when expanded */
 }
 
 .story-description-full p {
