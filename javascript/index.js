@@ -35,7 +35,7 @@ async function loadStories() {
                     <span class="read-more">...Read More</span>
                 </p>
                 <div class="story-description-full">
-                    ${story.description.split('\n').map(p => `<p>${p}</p>`).join('')}
+                    ${story.description.map(p => `<p>${p}</p>`).join('')}
                 </div>
             `;
             storiesSection.appendChild(storyEntry);
