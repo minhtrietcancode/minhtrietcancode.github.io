@@ -6,5 +6,14 @@
             "Today, I finally hosted a class of 10 students - something I had dreamed of since high school, inspired by the teachers who changed my life. The session went beautifully. Watching those kids, full of curiosity and excitement, brought me back to my own high school days, when I was just like them: eager to explore, hungry to learn.",
             "This is where I began teaching them Python - the same language that marked the first steps of my university journey. It made me nostalgic for those late nights spent wrestling with LeetCode until 2am, from the joy of printing a simple 'Hello World' to the frustration of debugging hundreds of lines of code. I’m deeply grateful to my past self for persevering through that period - it laid the foundation, the discipline, and the confidence that now allow me to lead this weekly Python class."
         ]
-    }
+    },
+    {
+        "date": "20/07/2022",
+        "title": "We Made It - Best Performance Ever By A Vietnamese Team !!!",
+        "description": [
+            "Together with Bach Tran, Kien Pham, and Minh Dang, we made history by achieving the best performance ever for a Vietnamese team - winning the Meritorious Prize and ranking 8th globally at the International Mathematical Modeling Challenge 2022.",
+            "That year’s problem was both exciting and challenging: designing a mathematical model to optimize airplane boarding and disembarking. We built models, pipelines, and even coded simulations under intense pressure. I still remember spending 3 days learning Python from scratch just to simulate passenger movements - staying up late, debugging endlessly, and somehow making it work. Looking back, it feels surreal that we actually wrote and ran that code!",
+            "This was truly an unforgettable experience - not only for the result but for the teamwork, creativity, and resilience it demanded. It’s a milestone that continues to inspire me on my journey."
+        ]
+    }    
 ]
