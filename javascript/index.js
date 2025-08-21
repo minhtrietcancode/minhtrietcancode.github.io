@@ -29,15 +29,21 @@ async function loadStories() {
             const storyEntry = document.createElement('div');
             storyEntry.classList.add('story-entry');
 
-            storyEntry.innerHTML = `
-                <p class="story-title-preview">
-                    <strong>${story.date}: ${story.title}</strong> 
-                    <span class="read-more">...Read More</span>
-                </p>
-                <div class="story-description-full">
-                    ${story.description.map(p => `<p>${p}</p>`).join('')}
-                </div>
-            `;
+            const storyTitlePreview = document.createElement('p');
+            storyTitlePreview.classList.add('story-title-preview');
+            storyTitlePreview.innerHTML = `<strong>${story.date}: ${story.title}</strong>`;
+
+            const readMoreButton = document.createElement('span');
+            readMoreButton.classList.add('read-more');
+            readMoreButton.textContent = '...Read More';
+            storyTitlePreview.appendChild(readMoreButton);
+
+            const storyDescriptionFull = document.createElement('div');
+            storyDescriptionFull.classList.add('story-description-full');
+            storyDescriptionFull.innerHTML = story.description.map(p => `<p>${p}</p>`).join('');
+
+            storyEntry.appendChild(storyTitlePreview);
+            storyEntry.appendChild(storyDescriptionFull);
             storiesSection.appendChild(storyEntry);
         });
 
@@ -46,16 +52,42 @@ async function loadStories() {
             button.addEventListener('click', function(e) {
                 e.preventDefault();
                 const storyEntry = this.closest('.story-entry');
+                const storyTitlePreview = storyEntry.querySelector('.story-title-preview');
                 const fullDescription = storyEntry.querySelector('.story-description-full');
-                
+                const readMoreButton = this;
+                let readLessButton = storyEntry.querySelector('.read-less');
+
                 if (fullDescription) {
                     fullDescription.classList.toggle('expanded');
+
                     if (fullDescription.classList.contains('expanded')) {
-                        this.textContent = '...Read Less';
+                        readMoreButton.style.display = 'none'; // Hide "Read More"
+
+                        if (!readLessButton) {
+                            readLessButton = document.createElement('span');
+                            readLessButton.classList.add('read-more'); // Re-use read-more class for styling
+                            readLessButton.classList.add('read-less');
+                            readLessButton.textContent = '...Read Less';
+                            fullDescription.appendChild(readLessButton);
+                            readLessButton.addEventListener('click', function(event) {
+                                event.preventDefault();
+                                fullDescription.classList.remove('expanded');
+                                readLessButton.remove(); // Remove "Read Less"
+                                readMoreButton.style.display = 'inline'; // Show "Read More"
+                                event.stopPropagation();
+                            });
+                        }
                     } else {
-                        this.textContent = '...Read More';
+                        // This case handles collapsing when the readLessButton is clicked directly
+                        // which is handled by its own listener now.
+                        // If a user clicks the original readMoreButton when already expanded, it will collapse.
+                        if (readLessButton) {
+                            readLessButton.remove();
+                        }
+                        readMoreButton.style.display = 'inline';
                     }
                 }
+                e.stopPropagation();
             });
         });
 
