@@ -44,7 +44,15 @@ async function loadStories() {
 
             const storyDescriptionFull = document.createElement('div');
             storyDescriptionFull.classList.add('story-description-full');
-            storyDescriptionFull.innerHTML = story.description.map(p => `<p>${p}</p>`).join('');
+            // Replace the hardcoded URL with a dynamic link
+            const formattedDescription = story.description.map(p => {
+                // This regex will find links in the format [Link Text](URL)
+                const linkRegex = /\[([^\]]+)\]\((https?:\/\/[^\s]+)\)/g;
+                return `<p>${p.replace(linkRegex, (match, linkText, url) => {
+                    return `<a href="${url}" target="_blank" class="story-link">${linkText}</a>`;
+                })}</p>`;
+            }).join('');
+            storyDescriptionFull.innerHTML = formattedDescription;
 
             // Add description to expandable content
             expandableContent.appendChild(storyDescriptionFull);

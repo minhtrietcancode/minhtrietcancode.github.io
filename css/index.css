@@ -356,6 +356,26 @@
     box-shadow: 0 8px 20px rgba(255, 255, 255, 0.15);
 }
 
+/* Story link styling */
+.story-link {
+    color: var(--secondary-color); /* A distinct color for links */
+    text-decoration: underline;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.story-link:hover {
+    color: var(--primary-color); /* Change color on hover */
+}
+
+.dark-theme .story-link {
+    color: var(--accent-color); /* Adjust for dark theme */
+}
+
+.dark-theme .story-link:hover {
+    color: var(--primary-color);
+}
+
 @media (max-width: 767px) {
     .story-entry {
         max-width: 100%; /* Ensure it takes full width on mobile, respecting container padding */
