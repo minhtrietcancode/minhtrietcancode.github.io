@@ -18,6 +18,16 @@
         "images": ["elcom_team.jpg", "elcom_nam.jpg", "elcom_viethoang.jpg", "elcom_dabong.jpg"]
     },    
     {
+        "date": "11/02/2024",
+        "title": "The Beginning of a New Journey - Flight to Australia",
+        "description": [
+            "Today, I stepped onto my very first international flight - leaving Vietnam for Australia. It’s the first time I’ve ever gone abroad, and the feeling is hard to put into words. Saying goodbye to my old life, my friends, and the streets that felt like home wasn’t easy. I carried no relatives, no familiar faces, no safety net here - just my dream and the determination to follow it.",
+            "Mom, wait for me. I promise one day I’ll make you proud, one day people will know my name. And Unimelb - here I come. The road will be tough, but I know it will also be beautiful. This is the start of something new, a journey where I’ll face challenges, grow stronger, and slowly carve out the future I’ve always dreamed of."
+        ],
+        "images_path": "image/stories/beginning in australia",
+        "images": ["aus1.jpg", "aus2.jpg", "aus3.jpg", "aus4.jpg"]
+    },    
+    {
         "date": "20/07/2022",
         "title": "We Made It - Best Performance Ever By A Vietnamese Team !!!",
         "description": [
