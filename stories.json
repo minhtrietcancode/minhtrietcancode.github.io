@@ -54,6 +54,18 @@
     },    
 
     {
+        "date": "23-05-2023",
+        "title": "End of 1000 Days - See You AMS!",
+        "description": [
+            "Today marks my last day at AMS, Hanoi - Amsterdam High School for the Gifted. It feels surreal how fast these 1000 dream days have flown by. Just yesterday, I was that little 5-year-old kid (like so many others in Vietnam) standing outside the school gates, gazing up at those red brick walls, dreaming of the day I'd finally wear that AMS uniform. AMS wasn't just a school - it was THE dream, the goal that kept me up countless nights studying, practicing, pushing myself to earn that coveted spot.",
+            "And when I finally made it in? AMS became my second home. Day after day filled with laughter and chaos - talking with friends between classes, playing soccer and basketball until sunset, living like one big family. It's crazy how attached you get to routines, to people, to a place that shapes your teenage years. Saying goodbye to all of this feels impossible - like leaving a piece of myself behind.",
+            "Thank you, AMS, for everything. For the teachers who believed in us, for the friends who became brothers and sisters, and for giving me the most beautiful teenage years I could have asked for. These 1000 days were worth every sleepless night it took to get here. See you around, old friend. 💙"
+        ],
+        "images_path": "image/stories/see you ams",
+        "images": ["class.jpg", "celebrate.jpg", "trio.jpg", "avatar.jpg"]
+    },
+
+    {
         "date": "20-07-2022",
         "title": "We Made It - Best Performance Ever By A Vietnamese Team !!!",
         "description": [
