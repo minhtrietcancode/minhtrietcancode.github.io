@@ -4,7 +4,7 @@
         "title": "Your Migration Act Assistant is Live !!!",
         "description": [
             "As an international student, I know firsthand how overwhelming it can be to go through pages after pages of migration law - confused, lost, and wishing there was an easier way. That’s why building this assistant means so much to me. It’s not just a project; it’s something I hope can truly support others in our community who are going through the same struggles I once faced. To finally be able to give back, to create something that can ease even a little bit of that burden, makes me really proud and grateful. 💡",
-            "This journey wasn’t easy - nights spent fighting with server errors, handling platform limits, and solving endless deployment conflicts. But today, I can finally say: it’s alive! 🚀 After all the effort, the Migration Act Assistant is now out in the world, ready for people to try. You can check it out here: [Assistant is Live](https://smart-migration-assistant.onrender.com/)"
+            "This journey wasn’t easy - nights spent fighting with server errors, handling platform limits, and solving endless deployment conflicts. But today, I can finally say: it’s alive! 🚀 After all the effort, the Migration Act Assistant is now out in the world, ready for people to try. You can check it out here: [Smart Migration Assistant](https://smart-migration-assistant.onrender.com/)"
         ],
         "images_path": "image/stories/migraton act",
         "images": ["darkmode.png", "lightmode.png", "searchtree.png", "structure.png"]
@@ -43,7 +43,7 @@
         "description": [
             "Together with Bach Tran, Kien Pham, and Minh Dang, we made history by achieving the best performance ever for a Vietnamese team - winning the Meritorious Prize and ranking 8th globally at the International Mathematical Modeling Challenge 2022.",
             "That year’s problem was both exciting and challenging: designing a mathematical model to optimize airplane boarding and disembarking. We built models, pipelines, and even coded simulations under intense pressure. I still remember spending 3 days learning Python from scratch just to simulate passenger movements - staying up late, debugging endlessly, and somehow making it work. Looking back, it feels surreal that we actually wrote and ran that code!",
-            "This was truly an unforgettable experience - not only for the result but for the teamwork, creativity, and resilience it demanded. It’s a milestone that continues to inspire me on my journey."
+            "This was truly an unforgettable experience - not only for the result but for the teamwork, creativity, and resilience it demanded. It’s a milestone that continues to inspire me on my journey. Feel free to see more information here: [Vietnamese Best Performance Ever](https://tienphong.vn/doi-tuyen-viet-nam-dat-giai-nhi-cuoc-thi-thu-thach-toan-mo-hinh-quoc-te-2022-post1454719.tpo)"
         ],
         "images_path": "image/stories/immc",
         "images": ["team.jpg", "cert.jpg", "barry1.jpg", "barry2.jpg"]
