@@ -9,6 +9,7 @@
         "images_path": "image/stories/migraton act",
         "images": ["darkmode.png", "lightmode.png", "searchtree.png", "structure.png"]
     },    
+
     {
         "date": "28/07/2025",
         "title": "My First Python Class - A Dream Realized",
@@ -17,6 +18,7 @@
             "This is where I began teaching them Python - the same language that marked the first steps of my university journey. It made me nostalgic for those late nights spent wrestling with LeetCode until 2am, from the joy of printing a simple 'Hello World' to the frustration of debugging hundreds of lines of code. I’m deeply grateful to my past self for persevering through that period - it laid the foundation, the discipline, and the confidence that now allow me to lead this weekly Python class."
         ]
     },
+
     {
         "date": "25/07/2025",
         "title": "End of My AI Engineer Internship - Deep Gratitude to Elcom",
@@ -27,6 +29,19 @@
         "images_path": "image/stories/elcom",
         "images": ["elcom_team.jpg", "elcom_nam.jpg", "elcom_viethoang.jpg", "elcom_dabong.jpg"]
     },    
+
+    {
+        "date": "15/11/2024",
+        "title": "End of My First Year at Unimelb",
+        "description": [
+            "One year ago, I came to Melbourne with nothing but a dream - and today, I can finally say I’ve completed my very first year at the University of Melbourne. It hasn’t been easy: new lifestyle, new discipline, countless exams, and challenges I never faced before. But looking back now, every bit of it has been worth it. I’m grateful to myself for making it through, and proud of everything I’ve gained - excellent results, new friends, inspiring tutors, and countless memories.",
+            "Special thanks to Manh Tung Vu - my housemate, my mentor, and my big brother here. You’ve guided me through so much, shared stories and wisdom that shaped how I see this journey. A simple thank you will never be enough. And to Jiwon Bae and Thomas Hammer - you two made my first year unforgettable. Jiwon, thank you for guiding me from my very first 'Hello World' all the way to solving complex problems. Thomas, my linear algebra tutor turned friend, you’ve been an inspiration - pure intelligence, pure brilliance, someone I deeply admire. More than a tutor, you’ve become a guide I’ll always respect.",
+            "This first year was tough, but it was also filled with growth, laughter, and lessons I’ll carry forever. Now, it’s time to step into the second year - with new challenges ahead, and a hungry, ambitious man ready to take them all on. 🚀"
+        ],
+        "images_path": "image/stories/end first year unimelb",
+        "images": ["tung.jpg", "thomas1.jpg", "thomas2.jpg", "hawthorn.jpg"]
+    },    
+
     {
         "date": "11/02/2024",
         "title": "The Beginning of a New Journey - Flight to Australia",
@@ -37,6 +52,7 @@
         "images_path": "image/stories/beginning in australia",
         "images": ["aus1.jpg", "aus2.jpg", "aus3.jpg", "aus4.jpg"]
     },    
+
     {
         "date": "20/07/2022",
         "title": "We Made It - Best Performance Ever By A Vietnamese Team !!!",
