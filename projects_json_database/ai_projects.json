@@ -1,12 +1,21 @@
 [
     {
+      "id": "project-smartstudy-application",
+      "title": "SmartStudy - AI-Powered Learning Platform",
+      "description": "A full-stack study platform that combines LLM-powered chat assistance with intelligent checklist generation. Features RAG-based context retrieval, multi-model LLM support, and interactive learning progress tracking with real-time collaboration between students and AI tutors.",
+      "image": "../image/projects/ai_related/smartstudy.png",
+      "imageAlt": "SmartStudy Application",
+      "tags": ["AI Agent", "Python", "FastAPI", "React", "MongoDB", "LangChain"],
+      "link": "https://smartstudy-gmzh.onrender.com/"
+    },
+    {
       "id": "project-rag-migration-law-chatbot",
       "title": "RAG - Migration Act Assistant",
       "description": "One of my biggest projects - geting the inspiration as an international student used to struggle with thousands of hours finding piece of information about Migration Act problems. This project leverage RAG technique and introduce a searching structure + algorithm that reduce searh time + embedding resource by more than 10000 times!!! And create a fundamental to be extended to AS MUCH DOCUMENTS AS WE WANT.",
       "image": "../image/projects/ai_related/rag migration law chatbot.png",
       "imageAlt": "RAG Migration Law Chatbot",
       "tags": ["AI Agent", "OpenAI", "Python", "NLP", "RAG", "Sentence Transformer", "PyTorch", "Optimization"],
-      "link": "https://github.com/minhtrietcancode/rag-migration-law-chatbot"
+      "link": "https://smart-migration-assistant.onrender.com/"
     },
     {
       "id": "project-tool-calling-ai-agent",
