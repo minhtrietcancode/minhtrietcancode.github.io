@@ -1,5 +1,14 @@
 [
     {
+        "date": "09-10-2025",
+        "title": "My First Time as a Guest Speaker",
+        "description" : [
+            "This is such a new experience with me, I used to attend many mentoring and networking sessions, watching the speakers sharing the stories about theire journeys. And today, it is such my pleasure to be here as a guest speaker for ITPA - when we talk about student in the exam period - how to best manage and prepare ourself for this stressfull period. Many thanks to Mr Khang Vo for giving me this chance!"
+        ],
+        "images_path": "image/stories/guest speaker itpa",
+        "images": ["triet guest speaker itpa.jpg", "triet gues speaker screenshot.png"]
+    },
+    {
         "date": "21-08-2025",
         "title": "Your Migration Act Assistant is Live !!!",
         "description": [
