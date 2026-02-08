@@ -13,14 +13,18 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
+// Word limit for truncating project descriptions (Read More)
+const DESCRIPTION_WORD_LIMIT = 25;
+
 // Function to truncate text and add "Read More" button
 function truncateText(element, wordLimit) {
-    const originalText = element.dataset.originalText || element.textContent;
-    element.dataset.originalText = originalText; // Store original text
+    const limit = wordLimit > 0 ? wordLimit : DESCRIPTION_WORD_LIMIT;
+    const originalText = element.dataset.originalText || element.textContent.trim();
+    element.dataset.originalText = originalText;
 
-    const words = originalText.split(' ');
-    if (words.length > wordLimit) {
-        const truncatedText = words.slice(0, wordLimit).join(' ') + '...';
+    const words = originalText.split(/\s+/).filter(Boolean);
+    if (words.length > limit) {
+        const truncatedText = words.slice(0, limit).join(' ') + '...';
         element.innerHTML = `${truncatedText} <span class="read-more">Read More</span>`;
     } else {
         element.textContent = originalText;
@@ -30,7 +34,9 @@ function truncateText(element, wordLimit) {
 // Function to expand text
 function expandText(element) {
     element.innerHTML = `${element.dataset.originalText} <span class="read-less">Read Less</span>`;
-    updateDropdownHeight(element);
+    if (typeof updateDropdownHeight === 'function') {
+        updateDropdownHeight(element);
+    }
 }
 
 // Add event listeners for Read More/Read Less
@@ -43,8 +49,10 @@ document.addEventListener('click', (e) => {
     } else if (e.target.classList.contains('read-less')) {
         const descriptionElement = e.target.closest('.project-description');
         if (descriptionElement) {
-            truncateText(descriptionElement, 0); // Re-truncate after expanding
-            updateDropdownHeight(descriptionElement);
+            truncateText(descriptionElement, DESCRIPTION_WORD_LIMIT);
+            if (typeof updateDropdownHeight === 'function') {
+                updateDropdownHeight(descriptionElement);
+            }
         }
     }
 });
@@ -52,43 +60,44 @@ document.addEventListener('click', (e) => {
 // Add search functionality for projects
 function addProjectSearch() {
     const projectsSection = document.getElementById('projects');
-    if (!projectsSection) return; // Only run if projects section exists
+    if (!projectsSection) return;
 
     const searchContainer = document.createElement('div');
     searchContainer.className = 'search-container';
     searchContainer.innerHTML = `
         <input type="text" id="project-search" placeholder="Search projects...">
     `;
-    
+
     const container = projectsSection.querySelector('.container');
     if (container) {
         container.insertBefore(searchContainer, container.firstChild);
     }
-    
+
     const searchInput = document.getElementById('project-search');
     if (searchInput) {
         searchInput.addEventListener('focus', () => {
             searchInput.style.borderColor = 'var(--secondary-color)';
         });
-        
+
         searchInput.addEventListener('blur', () => {
             searchInput.style.borderColor = 'var(--border-color)';
         });
-        
+
         searchInput.addEventListener('input', (e) => {
             const searchTerm = e.target.value.toLowerCase();
-            const projectCards = document.querySelectorAll('.project-card');
             const categories = document.querySelectorAll('.projects-category');
-            
+
             categories.forEach(category => {
                 const cards = category.querySelectorAll('.project-card');
                 let visibleCards = 0;
-                
+
                 cards.forEach(card => {
-                    const title = card.querySelector('.project-title').textContent.toLowerCase();
-                    const description = card.querySelector('.project-description').textContent.toLowerCase();
+                    const titleEl = card.querySelector('.project-title');
+                    const descEl = card.querySelector('.project-description');
+                    const title = (titleEl ? titleEl.textContent : '').toLowerCase();
+                    const description = (descEl ? descEl.textContent : '').toLowerCase();
                     const tags = Array.from(card.querySelectorAll('.tag')).map(tag => tag.textContent.toLowerCase()).join(' ');
-                    
+
                     if (title.includes(searchTerm) || description.includes(searchTerm) || tags.includes(searchTerm)) {
                         card.style.display = 'block';
                         visibleCards++;
@@ -96,20 +105,37 @@ function addProjectSearch() {
                         card.style.display = 'none';
                     }
                 });
-                
-                // Hide category if no visible cards
+
                 category.style.display = visibleCards > 0 ? 'block' : 'none';
             });
+
+            // Also filter featured section cards (they're in #featured-projects-grid)
+            const featuredGrid = document.getElementById('featured-projects-grid');
+            if (featuredGrid && searchTerm) {
+                featuredGrid.querySelectorAll('.project-card').forEach(card => {
+                    const titleEl = card.querySelector('.project-title');
+                    const descEl = card.querySelector('.project-description');
+                    const title = (titleEl ? titleEl.textContent : '').toLowerCase();
+                    const description = (descEl ? descEl.textContent : '').toLowerCase();
+                    const tags = Array.from(card.querySelectorAll('.tag')).map(tag => tag.textContent.toLowerCase()).join(' ');
+                    const matches = title.includes(searchTerm) || description.includes(searchTerm) || tags.includes(searchTerm);
+                    card.style.display = matches ? 'block' : 'none';
+                });
+            } else if (featuredGrid && !searchTerm) {
+                featuredGrid.querySelectorAll('.project-card').forEach(card => {
+                    card.style.display = 'block';
+                });
+            }
         });
     }
 }
 
-// Add dropdown functionality for a specific dynamically created header
-function addDynamicDropdownFunctionality(header) {
+// Add dropdown functionality for category headers
+function addDropdownFunctionality(header) {
     const content = header.nextElementSibling;
     const icon = header.querySelector('.dropdown-icon');
+    if (!content || !icon) return;
 
-    // Set initial state to collapsed
     content.style.maxHeight = null;
     content.classList.remove('expanded');
     icon.classList.remove('expanded');
@@ -120,165 +146,29 @@ function addDynamicDropdownFunctionality(header) {
             content.classList.remove('expanded');
             icon.classList.remove('expanded');
         } else {
-            content.style.maxHeight = content.scrollHeight + "px";
+            content.style.maxHeight = content.scrollHeight + 'px';
             content.classList.add('expanded');
             icon.classList.add('expanded');
         }
     });
 }
 
-// NEW FUNCTIONS FOR DYNAMIC PROJECT LOADING
-
-// Global variable to store all projects for featured section
-let allProjects = {};
-
-// Function to create project card HTML
-function createProjectCard(project) {
-    return `
-        <div class="project-card" id="${project.id}">
-            <div class="project-image">
-                <img src="${project.image}" alt="${project.imageAlt}" style="width:100%; height:100%; object-fit:cover;">
-            </div>
-            <div class="project-content">
-                <div class="project-title">${project.title}</div>
-                <div class="project-description">
-                    ${project.description}
-                </div>
-                <div class="project-tags">
-                    ${project.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
-                </div>
-                <a href="${project.link}" class="project-link" target="_blank">View Project</a>
-            </div>
-        </div>
-    `;
-}
-
-// Function to load config and initialize project loading
-async function loadProjectsFromConfig() {
-    try {
-        // Load config file
-        const configResponse = await fetch('../projects_json_database/config.json');
-        const config = await configResponse.json();
-        
-        // Load all project categories
-        await loadAllProjectCategories(config.project_categories);
-        
-        // Load featured projects after all projects are loaded
-        await loadFeaturedProjectsFromJSON();
-        
-    } catch (error) {
-        console.error('Error loading projects config:', error);
-    }
-}
-
-// Function to load all project categories
-async function loadAllProjectCategories(categories) {
-    const allProjectsContainer = document.getElementById('all-projects-container');
-    if (!allProjectsContainer) return;
-
-    for (const category of categories) {
-        try {
-            // Load projects for this category
-            const projectsResponse = await fetch(`../projects_json_database/${category.json_path}`);
-            const projects = await projectsResponse.json();
-            
-            // Store projects in global object for featured section
-            projects.forEach(project => {
-                allProjects[project.id] = project;
-            });
-            
-            // Create category HTML
-            const categoryHTML = `
-                <div class="projects-category">
-                    <div class="dropdown-header" id="${category.id}-header">
-                        <h3>${category.title}</h3>
-                        <span class="dropdown-icon">&#9660;</span>
-                    </div>
-                    <div class="dropdown-content" id="${category.id}-content">
-                        <div class="projects-grid">
-                            ${projects.map(project => createProjectCard(project)).join('')}
-                        </div>
-                    </div>
-                </div>
-            `;
-            
-            allProjectsContainer.innerHTML += categoryHTML;
-            
-        } catch (error) {
-            console.error(`Error loading projects for category ${category.title}:`, error);
-        }
-    }
-    
-    // Apply truncation to all project descriptions after they are loaded
-    document.querySelectorAll('.project-description').forEach(descriptionElement => {
-        truncateText(descriptionElement, 0);
-    });
-    
-    // Initialize dropdown functionality for all newly created project category headers
-    const newDropdownHeaders = document.querySelectorAll('#all-projects-container .dropdown-header');
-    newDropdownHeaders.forEach(header => {
-        addDynamicDropdownFunctionality(header);
-    });
-}
-
-// Updated function to load featured projects from JSON
-async function loadFeaturedProjectsFromJSON() {
-    try {
-        // Load featured projects config
-        const featuredResponse = await fetch('../projects_json_database/featured_project.json');
-        const featuredConfig = await featuredResponse.json();
-        
-        const featuredProjectsGrid = document.getElementById('featured-projects-grid');
-        if (!featuredProjectsGrid) return;
-
-        featuredConfig.featured_projects.forEach(projectId => {
-            const project = allProjects[projectId];
-            if (project) {
-                // Create project card
-                const projectCardHTML = createProjectCard(project);
-                const tempDiv = document.createElement('div');
-                tempDiv.innerHTML = projectCardHTML;
-                const clonedCard = tempDiv.firstElementChild;
-                
-                // Add pin icon and featured badge
-                const pinIcon = document.createElement('div');
-                pinIcon.className = 'pin-icon';
-                pinIcon.innerHTML = '📌';
-                clonedCard.prepend(pinIcon);
-                
-                const featuredBadge = document.createElement('div');
-                featuredBadge.className = 'featured-badge';
-                featuredBadge.textContent = 'FEATURED';
-                clonedCard.prepend(featuredBadge);
-
-                featuredProjectsGrid.appendChild(clonedCard);
-
-                // Truncate project descriptions for featured projects
-                const clonedDescriptionElement = clonedCard.querySelector('.project-description');
-                if (clonedDescriptionElement) {
-                    truncateText(clonedDescriptionElement, 0);
-                }
-
-                // Observe the cloned card for animation
-                if (typeof observer !== 'undefined' && observer instanceof IntersectionObserver) {
-                    observer.observe(clonedCard);
-                }
-            }
-        });
-        
-    } catch (error) {
-        console.error('Error loading featured projects:', error);
-    }
-}
-
-// Updated loadFeaturedProjects function (keeping for compatibility)
-function loadFeaturedProjects() {
-    // This function is now handled by loadFeaturedProjectsFromJSON
-    // Keeping it empty for compatibility with existing code
-}
-
-// Initialize functions on document load
+// Initialize: search, truncation, dropdowns, and scroll animation
 document.addEventListener('DOMContentLoaded', () => {
     addProjectSearch();
-    loadProjectsFromConfig();
+
+    // Truncate all project descriptions
+    document.querySelectorAll('.project-description').forEach(descriptionElement => {
+        truncateText(descriptionElement, DESCRIPTION_WORD_LIMIT);
+    });
+
+    // Initialize dropdowns for all project category headers
+    document.querySelectorAll('#all-projects-container .dropdown-header').forEach(header => {
+        addDropdownFunctionality(header);
+    });
+
+    // Observe all project cards for scroll animation
+    document.querySelectorAll('.project-card').forEach(card => {
+        observer.observe(card);
+    });
 });
