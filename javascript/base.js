@@ -167,21 +167,4 @@ function updateDropdownHeight(element) {
 document.addEventListener('DOMContentLoaded', () => {
     addThemeToggle();
     optimizePerformance();
-    // Add event listener for story read more/less
-    document.querySelectorAll('.story-entry .read-more').forEach(button => {
-        button.addEventListener('click', function(e) {
-            e.preventDefault();
-            const storyEntry = this.closest('.story-entry');
-            const fullDescription = storyEntry.querySelector('.story-description-full');
-            
-            if (fullDescription) {
-                fullDescription.classList.toggle('expanded');
-                if (fullDescription.classList.contains('expanded')) {
-                    this.textContent = '...Read Less';
-                } else {
-                    this.textContent = '...Read More';
-                }
-            }
-        });
-    });
 });
