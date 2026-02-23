@@ -4,199 +4,382 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Minh Triet Pham - Portfolio</title>
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
+    <!-- Navigation -->
     <header>
         <nav>
             <div class="logo"></div>
             <ul class="nav-links" id="nav-links">
-                <li><a href="#home" class="nav-link active">Home</a></li>
-                <li><a href="html/about.html" class="nav-link">About Me</a></li>
-                <li><a href="html/projects.html" class="nav-link">Projects</a></li>
-                <!-- <li><a href="Minh_Triet_Pham_Resume.pdf" class="nav-link">Resume</a></li> -->
+                <li><a href="#hero" class="nav-link active">Home</a></li>
+                <li><a href="#education" class="nav-link">Education</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#publications" class="nav-link">Publications</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#honors" class="nav-link">Honors & Awards</a></li>
+                <li><a href="#community" class="nav-link">Community & Leadership</a></li>
+                <li><a href="#my-picture" class="nav-link">My Picture</a></li>
             </ul>
-            <button class="mobile-menu" id="mobile-menu">☰</button>
+            <button class="mobile-menu" id="mobile-menu" aria-label="Toggle menu">☰</button>
         </nav>
     </header>
 
     <main>
-        <!-- Home Section -->
-        <section id="home" class="page-section active">
+        <!-- Hero Section -->
+        <section id="hero" class="page-section">
             <div class="hero">
                 <div class="container">
                     <div class="hero-content">
                         <div class="hero-left">
                             <div class="hero-image">
-                                <img src="image\myself\avatar\triet chan dung.jpg" alt="Minh Triet Pham" style="width:100%; height:100%; object-fit:cover; border-radius:50%;">
+                                <img src="image/myself/avatar/triet chan dung.jpg" alt="Minh Triet Pham">
                             </div>
                             <div class="social-links">
-                                <a href="https://github.com/minhtrietcancode" target="_blank"><i class="fab fa-github"></i></a>
-                                <a href="https://www.linkedin.com/in/minhtrietp/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                                <a href="Minh_Triet_Pham_Resume.pdf" target="_blank" class="resume-link"><i class="fas fa-file-pdf"></i></a>
-                            </div>
-                            <div class="hero-buttons">
-                                <a href="html/projects.html" class="btn">View Projects</a>
-                                <a href="html/about.html" class="btn">More About Me</a>
+                                <a href="https://github.com/minhtrietcancode" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                                <a href="https://www.linkedin.com/in/minhtrietp/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                                <a href="Minh_Triet_Pham_Resume.pdf" target="_blank" rel="noopener noreferrer" aria-label="Resume PDF"><i class="fas fa-file-pdf"></i></a>
                             </div>
                         </div>
                         <div class="hero-right">
                             <h1>Minh Triet Pham</h1>
-                            <p>
-                                Hi! I’m a second-year Data Science student at the University of Melbourne, with a strong math background from Hanoi - Amsterdam High School for the Gifted. I'm passionate about AI-especially Machine Learning, Deep Learning, and Computer Vision-and have hands-on experience building classification and detection models using PyTorch, TensorFlow, and OpenCV.
-                            </p>
-                            <p>
-                                I also care deeply about education. Thanks to the inspiring teachers I’ve had from secondary school to UniMelb, I now run a small class where I teach basic computing and Python to five students. I’ve been fortunate to learn from amazing tutors like Jiwon Bae, Thomas Hammer, and fellow Vietnamese educators Dr. Bach Le and Khang Vo, who continue to shape my learning journey.
-                            </p>
-                            <p>
-                                Outside of tech and teaching, I’m a big fan of sports. I used to play on both the basketball and football teams in high school, and I still enjoy playing whenever I get the chance, along with a few games of billiards now and then.
-                            </p>
+                            <p>I'm a third-year <strong>Data Science</strong> student at the <strong>University of Melbourne</strong>, with a strong math background 
+                                from <strong>Hanoi - Amsterdam High School for the Gifted</strong>. I'm passionate about <strong>AI</strong> — 
+                                especially <strong>Machine Learning, Deep Learning, and Computer Vision</strong> — and have hands-on experience building and integrating 
+                                AI agent systems, developing models for computer vision tasks, and tackling classical machine learning problems. Beyond applied work, 
+                                I'm also stepping into research: my first publication, where I am the <strong>first author</strong>, is set to be presented 
+                                at <strong>ABC 2026</strong> — the 8th International Conference on Activity and Behavior Computing. This semester, I'm also fortunate 
+                                to be working with <strong>Dr. Ian Gallagher</strong> at the <strong>University of Melbourne</strong> on the topic of <strong>Universality in Network Embeddings</strong>.</p>
+                            <p>I also care deeply about education. Thanks to the inspiring teachers I've had from secondary school to the University of Melbourne, I now run a small class where I <strong>teach basic computing and Python</strong> to five students. I'm grateful to my amazing tutors Jiwon Bae, Thomas Hammer, and Khang Vo for their continued support, and to Dr. Bach Le for the valuable guidance he has offered along the way. I'd like to extend a special thank you to <strong>Dr. Robert Maillardet</strong>, who was both my lecturer and tutor for Statistics (MAST20005) in 2025 — his lectures, and above all his personal advice and guidance, have meant more to my growth and career than I can put into words.</p>
+                            <p>Outside of tech and teaching, I'm a big fan of sports. I used to play on both the <strong>basketball and football</strong> teams in high school, and I still enjoy playing whenever I get the chance, along with a few games of billiards now and then.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Stories Section -->
-        <section id="stories" class="page-section active">
+        <!-- Education Section -->
+        <section id="education" class="page-section">
             <div class="container">
-                <h2>Stories</h2>
-
-                <div class="story-entry">
-                    <p class="story-title-preview"><strong>09-10-2025: My First Time as a Guest Speaker</strong><span class="read-more">...Read More</span></p>
-                    <div class="story-expandable-content">
-                        <div class="story-description-full">
-                            <p>This is such a new experience with me, I used to attend many mentoring and networking sessions, watching the speakers sharing the stories about theire journeys. And today, it is such my pleasure to be here as a guest speaker for ITPA - when we talk about student in the exam period - how to best manage and prepare ourself for this stressfull period. Many thanks to Mr Khang Vo for giving me this chance!</p>
+                <h2 class="section-title">Education</h2>
+                <div class="education-grid">
+                    <div class="education-card">
+                        <div class="education-institution-row">
+                            <div class="education-institution">The University of Melbourne</div>
+                            <div class="education-dates">Feb. 2024 – Expected Nov. 2026</div>
                         </div>
-                        <div class="story-images-container">
-                            <img src="image/stories/guest speaker itpa/triet guest speaker itpa.jpg" alt="My First Time as a Guest Speaker" class="story-image">
-                            <img src="image/stories/guest speaker itpa/triet gues speaker screenshot.png" alt="My First Time as a Guest Speaker" class="story-image">
+                        <div class="education-degree">Bachelor of Science in Data Science</div>
+                        <div class="education-honours">First Class Honours</div>
+                        <div class="education-coursework">Coursework: Databases, Data Structure & Algorithms, Element of Data Processing, Object-Oriented Programming, Linear Algebra, Probability, Statistics</div>
+                    </div>
+                    <div class="education-card">
+                        <div class="education-institution-row">
+                            <div class="education-institution">Hanoi – Amsterdam High School for the Gifted</div>
+                            <div class="education-dates">Sep. 2020 – May 2023</div>
+                        </div>
+                        <div class="education-degree">Class Mathematics 1</div>
+                        <div class="education-honours">GPA: 9.7/10</div>
+                        <div class="education-coursework">Member of Hanoi Amsterdam Basketball Team and Football Team</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="page-section">
+            <div class="container">
+                <h2 class="section-title">Experience</h2>
+                <div class="experience-list">
+                    <div class="experience-card">
+                        <div class="experience-header">
+                            <div>
+                                <div class="experience-title">Undergraduate Research Fellow</div>
+                                <div class="experience-company">The University of Melbourne</div>
+                            </div>
+                            <div class="experience-date">Jan. 2026 – Present</div>
+                        </div>
+                        <ul class="experience-bullets">
+                            <li>Research topic: Universality in Network Embeddings — supervised by Dr. Ian Gallagher</li>
+                            <li>Working on analyzing and comparing different network embedding algorithms to understand shared structural patterns and representation differences across network datasets</li>
+                        </ul>
+                    </div>
+                    <div class="experience-card">
+                        <div class="experience-header">
+                            <div>
+                                <div class="experience-title">AI Engineer</div>
+                                <div class="experience-company">AI @ DSCubed</div>
+                            </div>
+                            <div class="experience-date">Jul. 2025 – Oct. 2025</div>
+                        </div>
+                        <ul class="experience-bullets">
+                            <li>Built Discord assistant agent integrating Notion and Discord APIs, boosting organizational productivity by 15%</li>
+                            <li>Optimized FastAPI endpoint performance through architectural refactoring, achieving 10% reduction in API call latency</li>
+                            <li>Minimized API consumption costs by 25% through LLM prompt engineering and token optimization utilizing LangChain</li>
+                            <li>Accelerated CI/CD deployment cycles by 20% implementing containerized Docker workflows for infrastructure consistency</li>
+                        </ul>
+                    </div>
+                    <div class="experience-card">
+                        <div class="experience-header">
+                            <div>
+                                <div class="experience-title">Python Programming Instructor</div>
+                                <div class="experience-company">Freelance</div>
+                            </div>
+                            <div class="experience-date">Jul. 2025 – Oct. 2025</div>
+                        </div>
+                        <ul class="experience-bullets">
+                            <li>Led 11-week Python course for 10 students achieving 85% deep understanding rate through adaptive curriculum</li>
+                            <li>Guided all students to complete 2 hands-on projects each while maintaining 90% code quality standards</li>
+                            <li>Designed flexible curriculum accommodating diverse learning styles and skill levels for varying technical backgrounds</li>
+                        </ul>
+                    </div>
+                    <div class="experience-card">
+                        <div class="experience-header">
+                            <div>
+                                <div class="experience-title">AI Engineer Intern (Computer Vision)</div>
+                                <div class="experience-company">Elcom</div>
+                            </div>
+                            <div class="experience-date">May 2025 – Jul. 2025</div>
+                        </div>
+                        <ul class="experience-bullets">
+                            <li>Processed 1,000,000+ images for training computer vision models achieving high-performance detection accuracy</li>
+                            <li>Developed automated license plate recognition system detecting car numbers and attributes for 100,000+ vehicle images in high-speed road systems using YOLO and TensorFlow</li>
+                            <li>Implemented face recognition model for automated attendance checking system using OpenCV</li>
+                            <li>Crawled and curated 1,000,000+ images from diverse sources to build training datasets for CV models</li>
+                        </ul>
+                    </div>
+                    <div class="experience-card">
+                        <div class="experience-header">
+                            <div>
+                                <div class="experience-title">Private Mathematics Tutor</div>
+                                <div class="experience-company">Freelance</div>
+                            </div>
+                            <div class="experience-date">Mar. 2022 – Nov. 2024</div>
+                        </div>
+                        <ul class="experience-bullets">
+                            <li>Delivered personalized mathematics instruction across multiple levels, improving student performance by 50% on average</li>
+                            <li>Developed customized lesson plans tailored to individual learning gaps and accelerated concept comprehension</li>
+                            <li>Adapted pedagogical approaches to diverse learner needs across 3 years of personalized one-on-one tutoring</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Publications Section -->
+        <section id="publications" class="page-section">
+            <div class="container">
+                <h2 class="section-title">Publications</h2>
+                <div class="publication-card">
+                    <h3 class="publication-title">Deep Attention-based Sequential Ensemble Learning for BLE-Based Indoor Localization in Care Facilities</h3>
+                    <div class="publication-conference">8th International Conference on Activity and Behavior Computing (ABC 2026)</div>
+                    <div class="publication-authors">Minh Triet Pham, Quynh Chi Dang, Nhat Tan Le</div>
+                    <div class="publication-status">Accepted · Revised version submitted (forthcoming)</div>
+                    <ul class="publication-bullets">
+                        <li>Proposed DASEL, a novel sequential deep learning framework that reconceptualizes BLE-based indoor localization as a sequential learning problem rather than independent-window classification</li>
+                        <li>Achieved a macro F1 score of 0.4438 — a 53.1% improvement over the best traditional ML baseline — evaluated on 1.1M+ real-world BLE sensor readings from a care facility</li>
+                        <li>Designed a two-level hierarchical ensemble combining multi-seed bidirectional GRU networks with attention mechanisms and multi-directional sliding windows for robust inference</li>
+                        <li>Introduced frequency-based feature engineering to replace unstable raw RSSI signals, enabling device-agnostic deployment across heterogeneous hardware</li>
+                    </ul>
+                    <div class="publication-links">
+                        <a href="https://github.com/minhtrietcancode/abc-challenge-2026-location-classification" target="_blank" rel="noopener noreferrer" class="publication-link"><i class="fab fa-github"></i> GitHub</a>
+                        <a href="https://github.com/minhtrietcancode/abc-challenge-2026-location-classification/blob/main/abc_camera_ready_paper.pdf" target="_blank" rel="noopener noreferrer" class="publication-link"><i class="fas fa-file-pdf"></i> View Submitted Paper</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="page-section">
+            <div class="container">
+                <h2 class="section-title">Projects</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="image/projects/ai_related/smartstudy.png" alt="SmartStudy – AI-Powered Learning Platform">
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">SmartStudy – AI-Powered Learning Platform</h3>
+                            <p class="project-description">A full-stack intelligent study platform designed to act as a personal AI tutor and study companion. The system engages students in interactive learning conversations, providing real-time guidance and explanations across study topics. Alongside tutoring, it intelligently manages and tracks personalized study checklists — helping students stay organized, monitor their progress, and systematically work through their learning goals.</p>
+                            <div class="project-tags">
+                                <span class="tag">AI Agent</span>
+                                <span class="tag">Python</span>
+                                <span class="tag">FastAPI</span>
+                                <span class="tag">React</span>
+                                <span class="tag">MongoDB</span>
+                                <span class="tag">LangChain</span>
+                            </div>
+                            <a href="https://smartstudy-gmzh.onrender.com/" target="_blank" rel="noopener noreferrer" class="project-link">View Project</a>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="image/projects/ai_related/rag migration law chatbot.png" alt="RAG – Migration Act Assistant">
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">RAG – Migration Act Assistant</h3>
+                            <p class="project-description">An intelligent legal assistant designed to simplify access to Australia's Migration Act documentation. Leveraging Retrieval-Augmented Generation (RAG), the system introduces a novel hierarchical search structure and optimization algorithm that reduces search time and embedding resource consumption by over 10,000x compared to naive approaches — while maintaining a scalable architecture that supports unlimited document extension.</p>
+                            <div class="project-tags">
+                                <span class="tag">AI Agent</span>
+                                <span class="tag">OpenAI</span>
+                                <span class="tag">Python</span>
+                                <span class="tag">NLP</span>
+                                <span class="tag">RAG</span>
+                                <span class="tag">Sentence Transformer</span>
+                                <span class="tag">PyTorch</span>
+                                <span class="tag">Optimization</span>
+                            </div>
+                            <a href="https://smart-migration-assistant.onrender.com/" target="_blank" rel="noopener noreferrer" class="project-link">View Project</a>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="image/projects/ai_related/talent search.jpg" alt="LinkedIn Talent Search Agent">
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">LinkedIn Talent Search Agent</h3>
+                            <p class="project-description">An AI-powered recruitment automation system that streamlines the talent sourcing process. Given a job description, the agent autonomously navigates LinkedIn, identifies the most relevant candidates, and delivers structured summaries — significantly reducing manual screening time and improving hiring efficiency.</p>
+                            <div class="project-tags">
+                                <span class="tag">AI Agent</span>
+                                <span class="tag">NLP</span>
+                                <span class="tag">MCP</span>
+                                <span class="tag">Selenium</span>
+                                <span class="tag">BeautifulSoup</span>
+                                <span class="tag">Python</span>
+                                <span class="tag">LangChain</span>
+                            </div>
+                            <a href="https://github.com/minhtrietcancode/linkedin-talent-search-agent" target="_blank" rel="noopener noreferrer" class="project-link">View Project</a>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="image/projects/machine_learning/futuretrack.jpg" alt="FutureTrack – Market Analysis">
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">FutureTrack – Market Analysis</h3>
+                            <p class="project-description">A large-scale data-driven platform that forecasts employment and market trends across 40+ academic majors over the next decade. The system incorporates automated web scraping pipelines to aggregate career path information and academic guidance, delivering actionable insights to 200+ students for informed career decision-making.</p>
+                            <div class="project-tags">
+                                <span class="tag">Python</span>
+                                <span class="tag">Scikit-learn</span>
+                                <span class="tag">Matplotlib</span>
+                                <span class="tag">Data Analysis</span>
+                                <span class="tag">Machine Learning</span>
+                                <span class="tag">Regressions</span>
+                            </div>
+                            <a href="https://futuretrack-careerguidance.github.io/" target="_blank" rel="noopener noreferrer" class="project-link">View Project</a>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="image/projects/machine_learning/australian accident.jpg" alt="Australian Accident Research">
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Australian Accident Research</h3>
+                            <p class="project-description">A comprehensive data analysis and machine learning study examining the impact of infrastructure-related factors — including road geometry, surface conditions, and lighting — on traffic accident severity across Australia. Developed and evaluated multiple predictive ML models to support evidence-based road safety improvements and policy recommendations.</p>
+                            <div class="project-tags">
+                                <span class="tag">Data Analysis</span>
+                                <span class="tag">Visualization</span>
+                                <span class="tag">Machine Learning</span>
+                                <span class="tag">Python</span>
+                                <span class="tag">Scikit-learn</span>
+                            </div>
+                            <a href="https://github.com/minhtrietcancode/australian-accident-research" target="_blank" rel="noopener noreferrer" class="project-link">View Project</a>
                         </div>
                     </div>
                 </div>
+            </div>
+        </section>
 
-                <div class="story-entry">
-                    <p class="story-title-preview"><strong>21-08-2025: Your Migration Act Assistant is Live !!!</strong><span class="read-more">...Read More</span></p>
-                    <div class="story-expandable-content">
-                        <div class="story-description-full">
-                            <p>As an international student, I know firsthand how overwhelming it can be to go through pages after pages of migration law - confused, lost, and wishing there was an easier way. That's why building this assistant means so much to me. It's not just a project; it's something I hope can truly support others in our community who are going through the same struggles I once faced. To finally be able to give back, to create something that can ease even a little bit of that burden, makes me really proud and grateful. 💡</p>
-                            <p>This journey wasn't easy - nights spent fighting with server errors, handling platform limits, and solving endless deployment conflicts. But today, I can finally say: it's alive! 🚀 After all the effort, the Migration Act Assistant is now out in the world, ready for people to try. You can check it out here: <a href="https://smart-migration-assistant.onrender.com/" target="_blank" class="story-link">Smart Migration Assistant</a></p>
-                        </div>
-                        <div class="story-images-container">
-                            <img src="image/stories/migraton act/darkmode.png" alt="Your Migration Act Assistant is Live !!!" class="story-image">
-                            <img src="image/stories/migraton act/lightmode.png" alt="Your Migration Act Assistant is Live !!!" class="story-image">
-                            <img src="image/stories/migraton act/searchtree.png" alt="Your Migration Act Assistant is Live !!!" class="story-image">
-                            <img src="image/stories/migraton act/structure.png" alt="Your Migration Act Assistant is Live !!!" class="story-image">
-                        </div>
+        <!-- Honors & Awards Section -->
+        <section id="honors" class="page-section">
+            <div class="container">
+                <h2 class="section-title">Honors & Awards</h2>
+                <div class="honors-list">
+                    <div class="honor-card">
+                        <div class="honor-icon"><i class="fas fa-graduation-cap"></i></div>
+                        <div class="honor-title">Melbourne International Undergraduate Scholarship</div>
+                        <div class="honor-body">The University of Melbourne · 2023</div>
+                    </div>
+                    <div class="honor-card">
+                        <div class="honor-icon"><i class="fas fa-trophy"></i></div>
+                        <div class="honor-title">Meritorious Prize (Top 8 Overall – Best Vietnamese Performance Ever)</div>
+                        <div class="honor-body">The International Mathematical Modelling Challenge (IMMC) · 2022</div>
+                    </div>
+                    <div class="honor-card">
+                        <div class="honor-icon"><i class="fas fa-award"></i></div>
+                        <div class="honor-title">High Distinction Prize</div>
+                        <div class="honor-body">Australian Intermediate Mathematical Olympiad (AIMO) · 2021</div>
                     </div>
                 </div>
+            </div>
+        </section>
 
-                <div class="story-entry">
-                    <p class="story-title-preview"><strong>28-07-2025: My First Python Class - A Dream Realized</strong><span class="read-more">...Read More</span></p>
-                    <div class="story-expandable-content">
-                        <div class="story-description-full">
-                            <p>Today, I finally hosted a class of 10 students - something I had dreamed of since high school, inspired by the teachers who changed my life. The session went beautifully. Watching those kids, full of curiosity and excitement, brought me back to my own high school days, when I was just like them: eager to explore, hungry to learn.</p>
-                            <p>This is where I began teaching them Python - the same language that marked the first steps of my university journey. It made me nostalgic for those late nights spent wrestling with LeetCode until 2am, from the joy of printing a simple 'Hello World' to the frustration of debugging hundreds of lines of code. I'm deeply grateful to my past self for persevering through that period - it laid the foundation, the discipline, and the confidence that now allow me to lead this weekly Python class.</p>
+        <!-- Community & Leadership Section -->
+        <section id="community" class="page-section">
+            <div class="container">
+                <h2 class="section-title">Community & Leadership</h2>
+                <div class="community-list">
+                    <div class="community-card">
+                        <div class="community-header">
+                            <div>
+                                <div class="community-title">Peer Mentor</div>
+                                <div class="community-org">University of Melbourne</div>
+                            </div>
+                            <div class="community-date">Feb. 2026 – Expected May 2026</div>
                         </div>
+                        <ul class="community-bullets">
+                            <li>Leading a group of 20 first-year students through their transition into university life, fostering connection and a sense of belonging within the community</li>
+                            <li>Providing guidance on academic strategies, navigating university resources, and addressing challenges that come with the early stages of university life</li>
+                        </ul>
+                    </div>
+                    <div class="community-card">
+                        <div class="community-header">
+                            <div>
+                                <div class="community-title">Volunteer</div>
+                                <div class="community-org">St. Francis Church, Melbourne</div>
+                            </div>
+                            <div class="community-date">Feb. 2024 – Present</div>
+                        </div>
+                        <ul class="community-bullets">
+                            <li>Committed to over 2 years of consistent weekly service including church maintenance and cleaning</li>
+                            <li>Guiding and welcoming new members to help them feel at home within the community</li>
+                            <li>Organizing monthly celebration and social activities to strengthen bonds and foster a warm, inclusive environment</li>
+                            <li>Connecting people with one another and contributing to a supportive, close-knit community</li>
+                        </ul>
                     </div>
                 </div>
+            </div>
+        </section>
 
-                <div class="story-entry">
-                    <p class="story-title-preview"><strong>25-07-2025: End of My AI Engineer Internship - Deep Gratitude to Elcom</strong><span class="read-more">...Read More</span></p>
-                    <div class="story-expandable-content">
-                        <div class="story-description-full">
-                            <p>Today marks the end of my 2-month internship at Elcom - an experience so unforgettable that it feels impossible to move on from. These months were more than just work; they were about living, eating, learning, and laughing alongside the people at Elcom, who quickly became like a second family to me. They trained me, guided me, played football with me, and shared life stories that I will carry forever. I gained far more than I could ever give back, and this journey has helped shape the foundation of my career path.</p>
-                            <p>A special thanks goes to Mai Viet Hoang Do - my mentor, my friend, and above all, my big brother. Thank you for guiding me through the very first steps as a complete newbie. From countless hours of breaking down complex problems, to patient explanations, to sharing both knowledge and life lessons - your guidance has left an imprint I will never forget.</p>
-                        </div>
-                        <div class="story-images-container">
-                            <img src="image/stories/elcom/elcom_team.jpg" alt="End of My AI Engineer Internship - Deep Gratitude to Elcom" class="story-image">
-                            <img src="image/stories/elcom/elcom_nam.jpg" alt="End of My AI Engineer Internship - Deep Gratitude to Elcom" class="story-image">
-                            <img src="image/stories/elcom/elcom_viethoang.jpg" alt="End of My AI Engineer Internship - Deep Gratitude to Elcom" class="story-image">
-                            <img src="image/stories/elcom/elcom_dabong.jpg" alt="End of My AI Engineer Internship - Deep Gratitude to Elcom" class="story-image">
-                        </div>
-                    </div>
+        <!-- My Picture Section -->
+        <section id="my-picture" class="page-section">
+            <div class="container">
+                <h2 class="section-title">My Picture</h2>
+                <div class="picture-gallery">
+                    <img src="image/myself/sport/triet da bong.jpg" alt="Playing football">
+                    <img src="image/myself/sport/triet chi dao da bong.jpg" alt="Coaching football">
+                    <img src="image/myself/sport/dabong1.JPEG" alt="Football">
+                    <img src="image/myself/sport/bongro3.JPEG" alt="Basketball">
+                    <img src="image/myself/sport/bongro1.JPEG" alt="Basketball">
+                    <img src="image/myself/in_australia/me_in_aus1.JPG" alt="Me in Australia">
+                    <img src="image/myself/in_australia/me_in_aus.JPG" alt="Me in Australia">
+                    <img src="image/myself/highschool/toan 1-208.JPEG" alt="High school">
+                    <img src="image/myself/highschool/quaylai_banket.JPEG" alt="High school banquet">
+                    <img src="image/myself/highschool/hoacon_fc.JPG" alt="Football club">
+                    <img src="image/myself/highschool/habt.JPG" alt="Hanoi Amsterdam">
+                    <img src="image/myself/highschool/c3_friend.JPEG" alt="Friends">
                 </div>
-
-                <div class="story-entry">
-                    <p class="story-title-preview"><strong>15-11-2024: End of My First Year at Unimelb</strong><span class="read-more">...Read More</span></p>
-                    <div class="story-expandable-content">
-                        <div class="story-description-full">
-                            <p>One year ago, I came to Melbourne with nothing but a dream - and today, I can finally say I've completed my very first year at the University of Melbourne. It hasn't been easy: new lifestyle, new discipline, countless exams, and challenges I never faced before. But looking back now, every bit of it has been worth it. I'm grateful to myself for making it through, and proud of everything I've gained - excellent results, new friends, inspiring tutors, and countless memories.</p>
-                            <p>Special thanks to Manh Tung Vu - my housemate, my mentor, and my big brother here. You've guided me through so much, shared stories and wisdom that shaped how I see this journey. A simple thank you will never be enough. And to Jiwon Bae and Thomas Hammer - you two made my first year unforgettable. Jiwon, thank you for guiding me from my very first 'Hello World' all the way to solving complex problems. Thomas, my linear algebra tutor turned friend, you've been an inspiration - pure intelligence, pure brilliance, someone I deeply admire. More than a tutor, you've become a guide I'll always respect.</p>
-                            <p>This first year was tough, but it was also filled with growth, laughter, and lessons I'll carry forever. Now, it's time to step into the second year - with new challenges ahead, and a hungry, ambitious man ready to take them all on. 🚀</p>
-                        </div>
-                        <div class="story-images-container">
-                            <img src="image/stories/end first year unimelb/tung.jpg" alt="End of My First Year at Unimelb" class="story-image">
-                            <img src="image/stories/end first year unimelb/thomas1.jpg" alt="End of My First Year at Unimelb" class="story-image">
-                            <img src="image/stories/end first year unimelb/thomas2.jpg" alt="End of My First Year at Unimelb" class="story-image">
-                            <img src="image/stories/end first year unimelb/hawthorn.jpg" alt="End of My First Year at Unimelb" class="story-image">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="story-entry">
-                    <p class="story-title-preview"><strong>11-02-2024: The Beginning of a New Journey - Flight to Australia</strong><span class="read-more">...Read More</span></p>
-                    <div class="story-expandable-content">
-                        <div class="story-description-full">
-                            <p>Today, I stepped onto my very first international flight - leaving Vietnam for Australia. It's the first time I've ever gone abroad, and the feeling is hard to put into words. Saying goodbye to my old life, my friends, and the streets that felt like home wasn't easy. I carried no relatives, no familiar faces, no safety net here - just my dream and the determination to follow it.</p>
-                            <p>Mom, wait for me. I promise one day I'll make you proud, one day people will know my name. And Unimelb - here I come. The road will be tough, but I know it will also be beautiful. This is the start of something new, a journey where I'll face challenges, grow stronger, and slowly carve out the future I've always dreamed of.</p>
-                        </div>
-                        <div class="story-images-container">
-                            <img src="image/stories/beginning in australia/aus1.jpg" alt="The Beginning of a New Journey - Flight to Australia" class="story-image">
-                            <img src="image/stories/beginning in australia/aus2.jpg" alt="The Beginning of a New Journey - Flight to Australia" class="story-image">
-                            <img src="image/stories/beginning in australia/aus3.jpg" alt="The Beginning of a New Journey - Flight to Australia" class="story-image">
-                            <img src="image/stories/beginning in australia/aus4.jpg" alt="The Beginning of a New Journey - Flight to Australia" class="story-image">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="story-entry">
-                    <p class="story-title-preview"><strong>23-05-2023: End of 1000 Days - See You AMS!</strong><span class="read-more">...Read More</span></p>
-                    <div class="story-expandable-content">
-                        <div class="story-description-full">
-                            <p>Today marks my last day at AMS, Hanoi - Amsterdam High School for the Gifted. It feels surreal how fast these 1000 dream days have flown by. Just yesterday, I was that little 5-year-old kid (like so many others in Vietnam) standing outside the school gates, gazing up at those red brick walls, dreaming of the day I'd finally wear that AMS uniform. AMS wasn't just a school - it was THE dream, the goal that kept me up countless nights studying, practicing, pushing myself to earn that coveted spot.</p>
-                            <p>And when I finally made it in? AMS became my second home. Day after day filled with laughter and chaos - talking with friends between classes, playing soccer and basketball until sunset, living like one big family. It's crazy how attached you get to routines, to people, to a place that shapes your teenage years. Saying goodbye to all of this feels impossible - like leaving a piece of myself behind.</p>
-                            <p>Thank you, AMS, for everything. For the teachers who believed in us, for the friends who became brothers and sisters, and for giving me the most beautiful teenage years I could have asked for. These 1000 days were worth every sleepless night it took to get here. See you around, old friend. 💙</p>
-                        </div>
-                        <div class="story-images-container">
-                            <img src="image/stories/see you ams/class.jpg" alt="End of 1000 Days - See You AMS!" class="story-image">
-                            <img src="image/stories/see you ams/celebrate.jpg" alt="End of 1000 Days - See You AMS!" class="story-image">
-                            <img src="image/stories/see you ams/trio.jpg" alt="End of 1000 Days - See You AMS!" class="story-image">
-                            <img src="image/stories/see you ams/avatar.jpg" alt="End of 1000 Days - See You AMS!" class="story-image">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="story-entry">
-                    <p class="story-title-preview"><strong>20-07-2022: We Made It - Best Performance Ever By A Vietnamese Team !!!</strong><span class="read-more">...Read More</span></p>
-                    <div class="story-expandable-content">
-                        <div class="story-description-full">
-                            <p>Together with Bach Tran, Kien Pham, and Minh Dang, we made history by achieving the best performance ever for a Vietnamese team - winning the Meritorious Prize and ranking 8th globally at the International Mathematical Modeling Challenge 2022.</p>
-                            <p>That year's problem was both exciting and challenging: designing a mathematical model to optimize airplane boarding and disembarking. We built models, pipelines, and even coded simulations under intense pressure. I still remember spending 3 days learning Python from scratch just to simulate passenger movements - staying up late, debugging endlessly, and somehow making it work. Looking back, it feels surreal that we actually wrote and ran that code!</p>
-                            <p>This was truly an unforgettable experience - not only for the result but for the teamwork, creativity, and resilience it demanded. It's a milestone that continues to inspire me on my journey. Feel free to see more information here: <a href="https://tienphong.vn/doi-tuyen-viet-nam-dat-giai-nhi-cuoc-thi-thu-thach-toan-mo-hinh-quoc-te-2022-post1454719.tpo" target="_blank" class="story-link">Vietnamese Best Performance Ever</a></p>
-                        </div>
-                        <div class="story-images-container">
-                            <img src="image/stories/immc/team.jpg" alt="We Made It - Best Performance Ever By A Vietnamese Team !!!" class="story-image">
-                            <img src="image/stories/immc/cert.jpg" alt="We Made It - Best Performance Ever By A Vietnamese Team !!!" class="story-image">
-                            <img src="image/stories/immc/barry1.jpg" alt="We Made It - Best Performance Ever By A Vietnamese Team !!!" class="story-image">
-                            <img src="image/stories/immc/barry2.jpg" alt="We Made It - Best Performance Ever By A Vietnamese Team !!!" class="story-image">
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </section>
     </main>
 
+    <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2025 Minh Triet Pham. All rights reserved.</p>
+            <p>© 2026 Minh Triet Pham. All rights reserved.</p>
         </div>
     </footer>
 
-    <script src="javascript/base.js"></script>
-    <script src="javascript/index.js"></script>
+    <script src="index.js"></script>
 </body>
 </html>
