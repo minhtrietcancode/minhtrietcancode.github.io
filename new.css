@@ -649,6 +649,13 @@ footer p {
 }
 
 /* ===== Responsive Navigation ===== */
+/* Laptop view: center-aligned nav */
+@media (min-width: 901px) {
+    nav {
+        justify-content: center;
+    }
+}
+
 @media (max-width: 900px) {
     .nav-links {
         display: none;
