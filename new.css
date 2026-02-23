@@ -178,6 +178,11 @@ main {
     color: var(--text-color);
 }
 
+.hero p strong {
+    font-weight: 645;
+    color: #446078;
+}
+
 .social-links {
     margin-top: 1rem;
     display: flex;
@@ -644,8 +649,6 @@ main {
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(3, auto);
     gap: 1rem;
-    max-width: 1000px;
-    margin: 0 auto;
 }
 
 .picture-gallery img {
@@ -722,7 +725,7 @@ footer p {
 
     /* Constrain intro width & justify text */
     .hero-right {
-        max-width: 800px;
+        max-width: 100%;
         margin: 0 auto;
     }
 
