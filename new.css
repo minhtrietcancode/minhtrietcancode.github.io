@@ -472,6 +472,20 @@ main {
     font-size: 0.95rem;
 }
 
+.project-description .read-more,
+.project-description .read-less {
+    color: var(--secondary-color);
+    cursor: pointer;
+    font-weight: 600;
+    white-space: nowrap;
+    margin-left: 4px;
+}
+
+.project-description .read-more:hover,
+.project-description .read-less:hover {
+    text-decoration: underline;
+}
+
 .project-tags {
     display: flex;
     flex-wrap: wrap;

@@ -94,4 +94,39 @@
     window.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('load', updateActiveNav);
     updateActiveNav();
+
+    // Project descriptions: truncate with Read More / Read Less (same as projects.js)
+    const DESCRIPTION_WORD_LIMIT = 19;
+
+    function truncateProjectDescription(element, wordLimit) {
+        const limit = wordLimit > 0 ? wordLimit : DESCRIPTION_WORD_LIMIT;
+        const originalText = element.dataset.originalText || element.textContent.trim();
+        element.dataset.originalText = originalText;
+
+        const words = originalText.split(/\s+/).filter(Boolean);
+        if (words.length > limit) {
+            const truncatedText = words.slice(0, limit).join(' ') + '...';
+            element.innerHTML = truncatedText + ' <span class="read-more">Read More</span>';
+        } else {
+            element.textContent = originalText;
+        }
+    }
+
+    function expandProjectDescription(element) {
+        element.innerHTML = element.dataset.originalText + ' <span class="read-less">Read Less</span>';
+    }
+
+    document.addEventListener('click', (e) => {
+        if (e.target.classList.contains('read-more')) {
+            const desc = e.target.closest('.project-description');
+            if (desc) expandProjectDescription(desc);
+        } else if (e.target.classList.contains('read-less')) {
+            const desc = e.target.closest('.project-description');
+            if (desc) truncateProjectDescription(desc, DESCRIPTION_WORD_LIMIT);
+        }
+    });
+
+    document.querySelectorAll('#projects .project-description').forEach((el) => {
+        truncateProjectDescription(el, DESCRIPTION_WORD_LIMIT);
+    });
 })();
