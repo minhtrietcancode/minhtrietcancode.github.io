@@ -12,10 +12,11 @@
     --text-color: #333;
     --text-light: #666;
     --bg-color: #ffffff;
-    --bg-light: #f8f9fa;
-    --border-color: #e9ecef;
-    --shadow: 0 2px 10px rgba(0,0,0,0.1);
-    --shadow-hover: 0 4px 20px rgba(0,0,0,0.15);
+    --bg-light: #f0f4f8;
+    --border-color: #e0e7ef;
+    --shadow: 0 2px 12px rgba(44,62,80,0.08);
+    --shadow-hover: 0 6px 24px rgba(44,62,80,0.16);
+    --gradient: linear-gradient(135deg, #3498db, #2c3e50);
 }
 
 html {
@@ -71,6 +72,25 @@ nav {
     font-weight: 500;
     font-size: 0.95rem;
     transition: color 0.3s ease;
+    position: relative;
+    padding-bottom: 3px;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--gradient);
+    border-radius: 2px;
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    width: 100%;
 }
 
 .nav-links a:hover,
@@ -113,11 +133,27 @@ main {
     font-size: 2rem;
     margin-bottom: 2rem;
     text-align: center;
-    border-bottom: 3px solid var(--secondary-color);
-    padding-bottom: 0.5rem;
+    padding-bottom: 0.75rem;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: var(--gradient);
+    border-radius: 3px;
 }
 
 /* ===== Hero Section ===== */
+#hero.page-section {
+    background: linear-gradient(160deg, #f0f6ff 0%, #ffffff 60%);
+}
+
 .hero {
     padding: 2rem 0;
 }
@@ -157,12 +193,16 @@ main {
     overflow: hidden;
     margin: 0 auto 1.5rem;
     box-shadow: var(--shadow);
+    padding: 3px;
+    background: var(--gradient);
 }
 
 .hero-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border-radius: 50%;
+    display: block;
 }
 
 .hero h1 {
@@ -179,7 +219,7 @@ main {
 }
 
 .hero p strong {
-    font-weight: 645;
+    font-weight: 600;
     color: #446078;
 }
 
@@ -253,7 +293,14 @@ main {
     padding: 1.5rem;
     border-radius: 8px;
     border: 1px solid var(--border-color);
+    border-left: 4px solid var(--secondary-color);
     box-shadow: var(--shadow);
+    transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.education-card:hover {
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-2px);
 }
 
 .education-institution-row {
@@ -316,7 +363,14 @@ main {
     padding: 1.5rem;
     border-radius: 8px;
     border: 1px solid var(--border-color);
+    border-left: 4px solid var(--secondary-color);
     box-shadow: var(--shadow);
+    transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.experience-card:hover {
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-2px);
 }
 
 .experience-header {
@@ -367,6 +421,7 @@ main {
     padding: 2rem;
     border-radius: 8px;
     border: 1px solid var(--border-color);
+    border-left: 4px solid var(--secondary-color);
     box-shadow: var(--shadow);
 }
 
@@ -447,6 +502,7 @@ main {
 
 .project-card:hover {
     box-shadow: var(--shadow-hover);
+    transform: translateY(-3px);
 }
 
 .project-image {
@@ -502,12 +558,13 @@ main {
 }
 
 .tag {
-    background: var(--bg-light);
-    color: var(--text-color);
+    background: #e8f4fd;
+    color: #2980b9;
     padding: 0.2rem 0.6rem;
     border-radius: 20px;
     font-size: 0.75rem;
-    border: 1px solid var(--border-color);
+    border: 1px solid #bee3f8;
+    font-weight: 500;
 }
 
 .project-link {
@@ -598,7 +655,14 @@ main {
     padding: 1.5rem;
     border-radius: 8px;
     border: 1px solid var(--border-color);
+    border-left: 4px solid var(--secondary-color);
     box-shadow: var(--shadow);
+    transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.community-card:hover {
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-2px);
 }
 
 .community-header {
@@ -686,11 +750,10 @@ main {
 
 /* ===== Footer ===== */
 footer {
-    background: var(--bg-color);
-    color: var(--text-color);
+    background: var(--gradient);
+    color: rgba(255,255,255,0.85);
     text-align: center;
     padding: 2rem 0;
-    border-top: 1px solid var(--border-color);
 }
 
 footer p {
