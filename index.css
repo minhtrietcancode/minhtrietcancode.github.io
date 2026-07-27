@@ -449,6 +449,18 @@ main {
     }
 }
 
+.experience-subentry {
+    padding-top: 1rem;
+    margin-top: 1rem;
+    border-top: 1px dashed var(--border-color);
+}
+
+.experience-subentry:first-child {
+    padding-top: 0;
+    margin-top: 0;
+    border-top: none;
+}
+
 /* ===== Publications Section ===== */
 .publication-card {
     background: var(--bg-color);
